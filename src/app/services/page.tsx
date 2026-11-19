@@ -46,18 +46,18 @@ export default function ServicesPage() {
     },
     {
       id: 'chemical-logistics',
-      title: 'Chemical Export Logistics',
-      shortTitle: 'Chemical Logistics',
-      category: 'Specialised Cargo Vertical (60% Volume)',
+      title: 'Chemical & Pharma Export Logistics',
+      shortTitle: 'Chemical & Pharma',
+      category: 'Specialised Cargo Vertical (Pharma & Chemicals)',
       icon: Ship,
       image: '/images/services/iso-tanks.jpg',
       summary:
-        'Specialised logistics focus for chemical exports, accounting for approx. 60% of our business volumes across hazardous and non-hazardous cargo.',
+        'Specialised logistics focus for chemical and pharmaceutical exports, accounting for our core business volumes across hazardous and non-hazardous cargo.',
       overview:
-        'Chemical logistics demands stringent regulatory adherence, technical container readiness, and specialised handling. Our dedicated chemical operations desk possesses deep expertise in handling IMDG-classified dangerous goods (Classes 3, 6, 8, 9) and non-hazardous industrial chemicals with full statutory compliance.',
+        'Chemical and pharmaceutical logistics demand stringent regulatory adherence, cold chain/temperature stability, technical container readiness, and specialised handling. Our dedicated operations desk possesses deep expertise in handling IMDG-classified dangerous goods across Class 2 (Gases), Class 3 (Flammable Liquids), Class 4 (Flammable Solids), Class 5 (Oxidizers), Class 6 (Toxic Substances), Class 8 (Corrosives), and Class 9 (Miscellaneous Hazards) with full statutory compliance.',
       highlights: [
-        'Dedicated chemical operations desk with 10+ years vertical expertise',
-        'Specialised handling of IMDG dangerous goods (Classes 3, 6, 8, and 9)',
+        'Dedicated chemical & pharma operations desk with 10+ years vertical expertise',
+        'Specialised handling of IMDG dangerous goods (Classes 2, 3, 4, 5, 6, 8, and 9)',
         'Container selection, packing inspection, and MSDS verification',
         'Stringent port terminal safety compliance and stowage approvals',
       ],
@@ -152,7 +152,7 @@ export default function ServicesPage() {
         'Equipped with 316L stainless steel pressure shells, steam-heating manifolds, and emergency discharge valves, our ISO tank operations provide dependable transport for liquid chemicals, hazardous solvents, and bulk consumables with zero contamination risk.',
       highlights: [
         'Certified T11 & T14 UN portable ISO tank container operations',
-        'Handling of hazardous liquid chemicals and dedicated food-grade liquids',
+        'Handling of hazardous liquid chemicals (Classes 2, 3, 4, 5, 6, 8, 9) and dedicated food-grade liquids',
         'Periodic hydrostatic test certifications and steam sanitization reports',
         'Specialised multi-axle skeletal chassis haulage from factory to dock',
       ],

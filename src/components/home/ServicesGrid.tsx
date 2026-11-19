@@ -18,11 +18,11 @@ export default function ServicesGrid() {
     },
     {
       id: 'chemical-logistics',
-      title: 'Chemical Export Logistics',
+      title: 'Chemical & Pharma Export Logistics',
       image: '/images/services/iso-tanks.jpg',
-      badge: '60% Business Volume',
+      badge: 'Core Specialisation',
       description:
-        'Specialised focus on chemical cargo, handling dangerous goods (IMDG classified) and liquid bulk with certified ISO tanks.',
+        'Specialised focus on chemicals and pharma cargo, handling dangerous goods (IMDG Classes 2, 3, 4, 5, 6, 8, 9) and temperature-controlled or liquid bulk.',
       href: '/services#chemical-logistics',
     },
     {

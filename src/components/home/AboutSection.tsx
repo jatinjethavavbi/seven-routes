@@ -45,7 +45,7 @@ export default function AboutSection() {
                 Led by Directors <strong>Kanika</strong> (14+ years in logistics, prior roles with Nippon Express &amp; Globelink) and <strong>Neeraj</strong> (20+ years professional experience, 16+ years in logistics with DHL &amp; Maersk), our company brings approximately 30 professionals across <strong>Mumbai, Ahmedabad, and Surat</strong>, with most team members bringing more than 10 years of logistics industry experience.
               </p>
               <p>
-                We specialise in international freight forwarding, particularly <strong>chemical exports</strong>, which contribute approximately <strong>60% of our business volumes</strong>. Building on cumulative turnover of over <strong>₹350 crore</strong> managed over the last three years under Pazago Logistics by the same core team, we offer proven operational discipline and reliable execution.
+                We specialise in international freight forwarding, particularly <strong>chemicals and pharma exports</strong>, which represent our core business volumes (50% chemicals, 20% pharma, 20% FIBC &amp; non-woven bags). Building on cumulative turnover of over <strong>₹350 crore</strong> managed over the last three years under Pazago Logistics by the same core team, we offer proven operational discipline and reliable execution.
               </p>
             </div>
 

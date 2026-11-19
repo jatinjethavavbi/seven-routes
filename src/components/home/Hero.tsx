@@ -25,7 +25,7 @@ export default function Hero() {
 
           <h1 className="text-3xl sm:text-5xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight">
             Freight Forwarding Expertise. <br className="hidden sm:inline" />
-            <span className="text-theme-orange">A Specialised Focus on Chemical Exports.</span>
+            <span className="text-theme-orange">A Specialised Focus on Pharma and Chemicals.</span>
           </h1>
 
           <p className="text-base sm:text-lg text-slate-200 leading-relaxed font-normal max-w-2xl">
@@ -62,7 +62,7 @@ export default function Hero() {
             <span>•</span>
             <span className="flex items-center space-x-1.5">
               <CheckCircle2 className="w-3.5 h-3.5 text-theme-orange" />
-              <span>60% Chemical Volume</span>
+              <span>50% Chemicals • 20% Pharma</span>
             </span>
             <span>•</span>
             <span className="flex items-center space-x-1.5">

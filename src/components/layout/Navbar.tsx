@@ -66,7 +66,7 @@ export default function Navbar() {
 
   const services = [
     { title: 'International Freight Forwarding', href: '/services#freight-forwarding' },
-    { title: 'Chemical Export Logistics (Specialized)', href: '/services#chemical-logistics' },
+    { title: 'Chemical & Pharma Logistics (Specialized)', href: '/services#chemical-logistics' },
     { title: 'Freight Procurement', href: '/services#freight-procurement' },
     { title: 'Shipment Execution', href: '/services#shipment-execution' },
     { title: 'Documentation & Compliance', href: '/services#documentation' },

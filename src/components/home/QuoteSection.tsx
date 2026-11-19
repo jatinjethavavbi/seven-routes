@@ -165,7 +165,7 @@ export default function QuoteSection() {
                     className="w-full px-3.5 py-2.5 bg-white border border-slate-300 rounded-md text-base sm:text-sm text-slate-900 focus:outline-none focus:border-theme-orange focus:bg-white transition-colors"
                   >
                     <option value="International Freight Forwarding">International Freight Forwarding (Ocean/Air)</option>
-                    <option value="Chemical Export Logistics">Chemical Export Logistics (Specialized)</option>
+                    <option value="Chemical &amp; Pharma Export Logistics">Chemical &amp; Pharma Export Logistics (Specialized)</option>
                     <option value="ISO Tanks & Liquid Bulk">ISO Tanks &amp; Liquid Bulk</option>
                     <option value="Freight Procurement">Freight Procurement &amp; Rate Management</option>
                     <option value="Shipment Execution">Shipment Execution &amp; Container Booking</option>

@@ -140,24 +140,42 @@ export default function Footer() {
               <div className="flex items-start space-x-2">
                 <MapPin className="w-3.5 h-3.5 text-theme-orange shrink-0 mt-0.5" />
                 <div className="text-slate-300 leading-snug">
-                  <strong className="text-white block">Corporate Office:</strong>
-                  1501, BLA Business Park, CTS No. 492 A 1 to 4 and 492 B, near Atlanta Center, Goregaon (E), Sonawala Road, Village Pahadi, Mumbai 400063
+                  <strong className="text-white block">Corporate Office (Mumbai):</strong>
+                  1501, BLA Business Park, CTS No. 492 A 1 to 4 and 492 B, near Atlanta Center, Goregaon (E), Mumbai 400063
                 </div>
               </div>
 
               <div className="flex items-start space-x-2">
                 <MapPin className="w-3.5 h-3.5 text-theme-orange shrink-0 mt-0.5" />
                 <div className="text-slate-300 leading-snug">
-                  <strong className="text-white block">Mumbai Office:</strong>
-                  1006, The Gateway by Wadhwa, Mulund - Goregaon Link Rd, opp. Registration Office Mulund West, Hira Nagar, Mulund West, Mumbai 400080
+                  <strong className="text-white block">Surat Office:</strong>
+                  714, Surat Digital Valley, Beside Silver Trade Center, VIP Circle, Mota Varachha, Surat - 394101
+                </div>
+              </div>
+
+              <div className="flex items-start space-x-2">
+                <MapPin className="w-3.5 h-3.5 text-theme-orange shrink-0 mt-0.5" />
+                <div className="text-slate-300 leading-snug">
+                  <strong className="text-white block">Ahmedabad Office:</strong>
+                  1120, 11th Floor, Sakar-9, Beside old RBI, Ashram Rd, Navrangpura, Ahmedabad 380009
                 </div>
               </div>
 
               <div className="flex items-center space-x-2 pt-1">
                 <Phone className="w-3.5 h-3.5 text-theme-orange shrink-0" />
-                <a href="tel:+918128128791" className="hover:text-theme-orange transition-colors text-white font-medium">
-                  +91 81281 28791
-                </a>
+                <div className="text-white font-medium flex flex-wrap gap-x-2">
+                  <a href="tel:+918128128791" className="hover:text-theme-orange transition-colors">
+                    +91 81281 28791
+                  </a>
+                  <span>/</span>
+                  <a href="tel:+918866008584" className="hover:text-theme-orange transition-colors">
+                    +91 88660 08584
+                  </a>
+                  <span>/</span>
+                  <a href="tel:+917377709341" className="hover:text-theme-orange transition-colors">
+                    +91 73777 09341
+                  </a>
+                </div>
               </div>
 
               <div className="flex flex-col space-y-1">
@@ -169,14 +187,14 @@ export default function Footer() {
                 </div>
                 <div className="flex items-center space-x-2">
                   <Mail className="w-3.5 h-3.5 text-theme-orange shrink-0" />
-                  <a href="mailto:neeraj@sevenrouteslogistics.com" className="hover:text-theme-orange transition-colors text-slate-300">
-                    neeraj@sevenrouteslogistics.com
+                  <a href="mailto:divyesh.t@sevenrouteslogistics.com" className="hover:text-theme-orange transition-colors text-slate-300">
+                    divyesh.t@sevenrouteslogistics.com
                   </a>
                 </div>
               </div>
 
               <div className="pt-1 text-[11px] text-slate-400">
-                <span className="text-theme-orange font-semibold">Branches:</span> Mumbai (2) • Surat • Ahmedabad
+                <span className="text-theme-orange font-semibold">Branches:</span> Mumbai (Corporate &amp; Mulund) • Surat • Ahmedabad
               </div>
             </div>
           </div>

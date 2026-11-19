@@ -8,10 +8,11 @@ export const metadata: Metadata = {
     template: '%s | Seven Routes Logistics International Pvt. Ltd.',
   },
   description:
-    'Seven Routes Logistics International Pvt. Ltd. — Freight forwarding expertise with a specialised focus on chemical exports. Professionally managed, licensed by FMC, MTO, and IEC, with offices across Mumbai, Ahmedabad, and Surat.',
+    'Seven Routes Logistics International Pvt. Ltd. — Freight forwarding expertise with a specialised focus on pharma and chemicals. Professionally managed, licensed by FMC, MTO, and IEC, with offices across Mumbai, Ahmedabad, and Surat.',
   keywords: [
     'Seven Routes Logistics',
     'Seven Routes Logistics International Pvt Ltd',
+    'Pharma and Chemicals Export Logistics',
     'Chemical Export Logistics',
     'Freight Forwarding India',
     'FMC Licensed Forwarder',

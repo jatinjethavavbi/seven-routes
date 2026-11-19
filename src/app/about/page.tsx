@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
+import StatsBar from '@/components/home/StatsBar';
 import { 
   ShieldCheck, 
   Target, 
@@ -26,15 +27,6 @@ import {
 } from 'lucide-react';
 
 export default function AboutPage() {
-  const performanceIndicators = [
-    { indicator: 'Historical turnover managed over 3 years', value: '₹350+ crore' },
-    { indicator: 'Gross profit margin', value: '9%' },
-    { indicator: 'Operating expenses', value: '5%' },
-    { indicator: 'Net profit margin', value: '4%' },
-    { indicator: 'Chemical business contribution', value: '60%' },
-    { indicator: 'Total Shipments Handled', value: '20,000+ TEUs' },
-  ];
-
   const competitiveStrengths = [
     {
       title: 'Experienced Leadership with Global Exposure',
@@ -100,7 +92,7 @@ export default function AboutPage() {
                 About Seven Routes Logistics International Pvt. Ltd.
               </h1>
               <p className="text-sm sm:text-base text-slate-600 mt-2 leading-relaxed">
-                Connecting Businesses. Moving Possibilities. Freight forwarding expertise with a specialised focus on chemical exports.
+                Connecting Businesses. Moving Possibilities. Freight forwarding expertise with a specialised focus on pharma and chemicals.
               </p>
             </div>
           </div>
@@ -133,7 +125,7 @@ export default function AboutPage() {
                     Company Profile
                   </span>
                   <h2 className="text-2xl sm:text-3xl font-extrabold text-theme-blue tracking-tight leading-tight">
-                    Freight Forwarding Expertise with a Specialised Focus on Chemical Exports
+                    Freight Forwarding Expertise with a Specialised Focus on Pharma and Chemicals
                   </h2>
                 </div>
 
@@ -145,7 +137,7 @@ export default function AboutPage() {
                     The company has approximately <strong>30 professionals across Mumbai, Ahmedabad, and Surat</strong>, with most team members bringing more than 10 years of logistics industry experience.
                   </p>
                   <p>
-                    The company specialises in international freight forwarding, particularly chemical exports. Approximately <strong>60% of its business volumes</strong> are contributed by the chemical vertical.
+                    The company specialises in international freight forwarding, particularly pharma and chemicals. Our sector mix comprises <strong>50% Chemicals, 20% Pharma, 20% FIBC &amp; Non-Woven Bags, and 10% Others</strong>.
                   </p>
                   <p>
                     Seven Routes builds on the business operated under <strong>Pazago Logistics</strong> by the same core team over the last three years. During this period, the team managed cumulative turnover of over <strong>₹350 crore</strong> while maintaining healthy profitability. This historical performance reflects the experience and track record of the team, and is not standalone turnover of the newly formed entity.
@@ -222,44 +214,8 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* Business Performance Indicators Table */}
-        <section className="py-16 sm:py-20 bg-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-3xl mb-10">
-              <span className="text-xs font-semibold text-theme-orange uppercase tracking-wider block mb-2">
-                Proven Track Record
-              </span>
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-theme-blue tracking-tight">
-                Business Performance Indicators
-              </h2>
-              <p className="text-sm text-slate-600 mt-2">
-                Demonstrated operational and commercial success managed by the core team over the last 3 years.
-              </p>
-            </div>
-
-            <div className="overflow-hidden border border-slate-200 rounded-2xl shadow-sm">
-              <table className="min-w-full divide-y divide-slate-200 text-left text-sm">
-                <thead className="bg-slate-50 text-slate-700 font-bold text-xs uppercase tracking-wider">
-                  <tr>
-                    <th scope="col" className="px-6 py-4">Indicator</th>
-                    <th scope="col" className="px-6 py-4">Performance Metric</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-slate-100 bg-white text-slate-700">
-                  {performanceIndicators.map((row, idx) => (
-                    <tr key={idx} className={idx % 2 === 0 ? 'bg-white' : 'bg-slate-50/50'}>
-                      <td className="px-6 py-4 font-medium text-slate-900">{row.indicator}</td>
-                      <td className="px-6 py-4 font-bold text-theme-blue">{row.value}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-              <div className="bg-slate-50 px-6 py-3 text-xs text-slate-500 border-t border-slate-200">
-                <em>Note:</em> Historical turnover and profitability figures relate to business managed by the same core team under Pazago Logistics. They do not represent standalone financial performance of Seven Routes Logistics International Pvt. Ltd.
-              </div>
-            </div>
-          </div>
-        </section>
+        {/* Stats & Operating Track Record */}
+        <StatsBar />
 
         {/* Competitive Strengths */}
         <section className="py-16 sm:py-20 bg-slate-50 border-y border-slate-200">
