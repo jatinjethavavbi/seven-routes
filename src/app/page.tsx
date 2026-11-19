@@ -3,6 +3,7 @@
 import React from 'react';
 import Header from '@/components/layout/Header';
 import Hero from '@/components/home/Hero';
+import StatsBar from '@/components/home/StatsBar';
 import ServicesGrid from '@/components/home/ServicesGrid';
 import AboutSection from '@/components/home/AboutSection';
 import QuoteSection from '@/components/home/QuoteSection';
@@ -11,21 +12,24 @@ import Footer from '@/components/layout/Footer';
 export default function Home() {
   return (
     <div className="min-h-screen flex flex-col bg-white">
-      {/* 1. Direct Contact TopBar & Sticky Corporate Navbar */}
+      {/* 1. Header with Direct Contact TopBar & Sticky Corporate Navbar */}
       <Header />
       
       {/* 2. Main Homepage Streamlined Flow */}
       <main className="flex-1">
-        {/* Step 1: Clean Vessel Slider with Direct Action Buttons */}
+        {/* Step 1: Hero Banner */}
         <Hero />
 
-        {/* Step 2: Core Capabilities ("Our services make your work more productive") */}
+        {/* Step 2: Key Business Stats & Performance Track Record */}
+        <StatsBar />
+
+        {/* Step 3: Core Capabilities & Services */}
         <ServicesGrid />
 
-        {/* Step 3: Company Profile ("Who We Are" - 18 Years Journey) */}
+        {/* Step 4: Company Profile & Leadership Summary */}
         <AboutSection />
 
-        {/* Step 4: Simple 10-Field Single Card Quote Form */}
+        {/* Step 5: Rate Quote & Inquiry Form */}
         <QuoteSection />
       </main>
 

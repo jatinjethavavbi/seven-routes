@@ -8,57 +8,63 @@ import { ArrowRight } from 'lucide-react';
 export default function ServicesGrid() {
   const services = [
     {
-      id: 'sea-freight',
-      title: 'Sea Freight (FCL / LCL)',
-      image: '/images/services/sea-freight.jpg',
-      description:
-        'Full container loads and LCL consolidation connecting Indian ports to 100+ global destinations.',
-      href: '/services#sea-freight',
-    },
-    {
-      id: 'iso-tanks',
-      title: 'ISO Tanks & Liquid Bulk',
-      image: '/images/services/iso-tanks.jpg',
-      description:
-        'Certified tank containers for safe transport of food-grade liquids and hazardous chemical bulk.',
-      href: '/services#iso-tanks',
-    },
-    {
-      id: 'custom-clearance',
-      title: 'Customs Clearance (CHA)',
-      image: '/images/services/custom-clearance.jpg',
-      description:
-        'Licensed in-house customs clearance and documentation at Nhava Sheva, Mundra, and Hazira.',
-      href: '/services#custom-clearance',
-    },
-    {
       id: 'freight-forwarding',
       title: 'International Freight Forwarding',
       image: '/images/services/freight-forwarding.jpg',
+      badge: 'Multimodal Solutions',
       description:
-        'Multimodal shipping routes tailored for speed, regulatory compliance, and cost efficiency.',
+        'Comprehensive export and import freight solutions across major ocean container shipping routes and air freight corridors.',
       href: '/services#freight-forwarding',
     },
     {
-      id: 'transportation',
-      title: 'Inland Haulage & Transport',
-      image: '/images/services/transportation.jpg',
+      id: 'chemical-logistics',
+      title: 'Chemical Export Logistics',
+      image: '/images/services/iso-tanks.jpg',
+      badge: '60% Business Volume',
       description:
-        'Dedicated container trailers connecting factory gates to port terminals and inland depots.',
-      href: '/services#transportation',
+        'Specialised focus on chemical cargo, handling dangerous goods (IMDG classified) and liquid bulk with certified ISO tanks.',
+      href: '/services#chemical-logistics',
     },
     {
-      id: 'supply-chain',
-      title: 'Supply Chain Management',
-      image: '/images/services/supply-chain.jpg',
+      id: 'freight-procurement',
+      title: 'Freight Procurement',
+      image: '/images/services/sea-freight.jpg',
+      badge: 'Direct Carrier Contracts',
       description:
-        'Strategic shipment planning to minimize port detention, demurrage, and turnaround times.',
-      href: '/services#supply-chain',
+        'Proactive shipping line capacity procurement, long-term rate negotiations, and competitive volume tier management.',
+      href: '/services#freight-procurement',
+    },
+    {
+      id: 'shipment-execution',
+      title: 'Shipment Execution',
+      image: '/images/services/transportation.jpg',
+      badge: 'End-to-End Coordination',
+      description:
+        'Container booking, timely depot equipment release, terminal cartage, and complete operational tracking from factory to discharge port.',
+      href: '/services#shipment-execution',
+    },
+    {
+      id: 'documentation',
+      title: 'Documentation & Compliance',
+      image: '/images/services/custom-clearance.jpg',
+      badge: 'Statutory Compliance',
+      description:
+        'Precision issuance of Multimodal Bills of Lading, statutory customs filing, certificate of origin, and full regulatory clearance.',
+      href: '/services#documentation',
+    },
+    {
+      id: 'commercial-management',
+      title: 'Commercial Management',
+      image: '/images/services/supply-chain.jpg',
+      badge: 'Credit & Financing',
+      description:
+        'Upfront freight financing to shipping lines, flexible agreed credit facilities for clients, and seamless commercial coordination.',
+      href: '/services#commercial-management',
     },
   ];
 
   return (
-    <section id="services" className="py-16 sm:py-20 bg-slate-50 border-b border-slate-200">
+    <section id="services" className="py-16 sm:py-20 bg-white border-b border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
@@ -70,43 +76,46 @@ export default function ServicesGrid() {
             Our Core Services
           </h2>
           <p className="text-sm sm:text-base text-slate-600 mt-2">
-            End-to-end maritime and inland logistics backed by 14+ years of freight forwarding experience.
+            End-to-end freight solutions and specialised chemical export logistics backed by experienced leadership and proven execution.
           </p>
         </div>
 
-        {/* 6 Clean Cards: 2x2 Grid on Mobile/Tablet, 3 Cols on Desktop */}
-        <div className="grid grid-cols-2 lg:grid-cols-3 gap-3.5 sm:gap-6 lg:gap-8">
+        {/* 6 Clean Cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {services.map((service) => (
             <div
               key={service.id}
-              className="bg-white rounded-xl border border-slate-200 overflow-hidden hover:border-theme-orange/40 hover:shadow-md transition-all flex flex-col group"
+              className="bg-white rounded-xl border border-slate-200 overflow-hidden hover:border-theme-orange/50 hover:shadow-md transition-all flex flex-col group"
             >
-              <div className="relative aspect-[16/10] sm:aspect-video md:h-48 w-full bg-slate-100 overflow-hidden">
+              <div className="relative aspect-[16/10] sm:h-48 w-full bg-slate-100 overflow-hidden">
                 <Image
                   src={service.image}
                   alt={service.title}
                   fill
-                  sizes="(max-width: 640px) 50vw, (max-width: 1024px) 50vw, 33vw"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   className="object-cover group-hover:scale-105 transition-transform duration-300"
                 />
+                <div className="absolute top-3 left-3 bg-theme-blue/90 text-white text-[11px] font-semibold px-2.5 py-1 rounded shadow">
+                  {service.badge}
+                </div>
               </div>
 
-              <div className="p-3.5 sm:p-6 flex-1 flex flex-col justify-between">
+              <div className="p-5 sm:p-6 flex-1 flex flex-col justify-between">
                 <div>
-                  <h3 className="text-sm sm:text-base font-bold text-theme-blue group-hover:text-theme-orange transition-colors line-clamp-2">
+                  <h3 className="text-base sm:text-lg font-bold text-theme-blue group-hover:text-theme-orange transition-colors">
                     {service.title}
                   </h3>
-                  <p className="text-[11px] sm:text-sm text-slate-600 mt-1 sm:mt-2 leading-relaxed line-clamp-3">
+                  <p className="text-xs sm:text-sm text-slate-600 mt-2 leading-relaxed">
                     {service.description}
                   </p>
                 </div>
 
-                <div className="mt-3 sm:mt-5 pt-2.5 sm:pt-4 border-t border-slate-100">
+                <div className="mt-4 pt-3 border-t border-slate-100">
                   <Link
                     href={service.href}
-                    className="inline-flex items-center space-x-1 text-xs font-semibold text-theme-orange hover:text-slate-900 transition-colors"
+                    className="inline-flex items-center space-x-1.5 text-xs font-semibold text-theme-orange group-hover:text-slate-900 transition-colors"
                   >
-                    <span>Learn more</span>
+                    <span>View details</span>
                     <ArrowRight className="w-3.5 h-3.5" />
                   </Link>
                 </div>

@@ -6,6 +6,7 @@
     "dev": "next dev",
     "dev:turbo": "next dev --turbopack",
     "build": "next build",
+    "postinstall": "node scripts/fix-next-path-bug.js",
     "start": "next start",
     "lint": "next lint"
   },

@@ -3,20 +3,20 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, CheckCircle2 } from 'lucide-react';
 
 export default function AboutSection() {
   return (
-    <section id="about" className="py-16 sm:py-20 bg-white">
+    <section id="about" className="py-16 sm:py-20 bg-slate-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
           
-          {/* Left Column: Full natural proportions, zero awkward cropping */}
+          {/* Left Column: Image */}
           <div className="lg:col-span-5">
-            <div className="w-full rounded-lg overflow-hidden border border-slate-200 shadow-sm bg-slate-100">
+            <div className="w-full rounded-2xl overflow-hidden border border-slate-200 shadow-sm bg-slate-100">
               <Image
                 src="/images/about/about-operations.jpg"
-                alt="Seven Routes Logistics Maritime Operations"
+                alt="Seven Routes Logistics International Operations"
                 width={620}
                 height={450}
                 priority
@@ -26,49 +26,56 @@ export default function AboutSection() {
             </div>
           </div>
 
-          {/* Right Column: Clean, Honest Story & Key Figures */}
-          <div className="lg:col-span-7 space-y-6">
+          {/* Right Column: Company Story & Leadership */}
+          <div className="lg:col-span-7 space-y-5">
             <div>
               <span className="text-xs font-semibold text-theme-orange uppercase tracking-wider block mb-2">
-                Who We Are
+                About Seven Routes Logistics
               </span>
               <h2 className="text-2xl sm:text-3xl font-extrabold text-theme-blue tracking-tight leading-tight">
-                14+ Years of Freight Forwarding Leadership
+                Leadership, Operating Strength &amp; Proven Track Record
               </h2>
             </div>
 
             <div className="text-sm sm:text-base text-slate-600 space-y-3 leading-relaxed">
               <p>
-                Led by seasoned logistics leader <strong>Kanika</strong> with over 14 years of industry pedigree across global names like Nippon Express and Globelink, <strong>Seven Routes Logistics International Pvt Ltd</strong> has grown into a trusted Indian freight forwarder and multimodal logistics provider.
+                <strong>Seven Routes Logistics International Pvt. Ltd.</strong> is a professionally managed freight forwarding company established by experienced logistics professionals with strong knowledge of international trade and supply chain operations.
               </p>
               <p>
-                With operational branches across <strong>Nhava Sheva (JNPT), Mundra, Hazira, and Ahmedabad</strong>, we provide end-to-end ocean container freight, specialized liquid bulk ISO tank management, and licensed in-house Custom House Agency (CHA) services.
+                Led by Directors <strong>Kanika</strong> (14+ years in logistics, prior roles with Nippon Express &amp; Globelink) and <strong>Neeraj</strong> (20+ years professional experience, 16+ years in logistics with DHL &amp; Maersk), our company brings approximately 30 professionals across <strong>Mumbai, Ahmedabad, and Surat</strong>, with most team members bringing more than 10 years of logistics industry experience.
+              </p>
+              <p>
+                We specialise in international freight forwarding, particularly <strong>chemical exports</strong>, which contribute approximately <strong>60% of our business volumes</strong>. Building on cumulative turnover of over <strong>₹350 crore</strong> managed over the last three years under Pazago Logistics by the same core team, we offer proven operational discipline and reliable execution.
               </p>
             </div>
 
-            {/* 3 Simple Stat Figures */}
-            <div className="grid grid-cols-3 gap-4 pt-2 border-t border-slate-100">
-              <div>
-                <span className="block text-2xl sm:text-3xl font-extrabold text-theme-blue">14+</span>
-                <span className="block text-xs text-slate-500 mt-0.5">Years Experience</span>
+            {/* 4 Stats */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2 border-t border-slate-200">
+              <div className="bg-white p-3 rounded-lg border border-slate-200 text-center">
+                <span className="block text-xl sm:text-2xl font-extrabold text-theme-blue">₹350+ Cr</span>
+                <span className="block text-[11px] text-slate-500 mt-0.5">Turnover Managed</span>
               </div>
-              <div>
-                <span className="block text-2xl sm:text-3xl font-extrabold text-theme-blue">4</span>
-                <span className="block text-xs text-slate-500 mt-0.5">Key Port Desks</span>
+              <div className="bg-white p-3 rounded-lg border border-slate-200 text-center">
+                <span className="block text-xl sm:text-2xl font-extrabold text-theme-blue">60%</span>
+                <span className="block text-[11px] text-slate-500 mt-0.5">Chemical Exports</span>
               </div>
-              <div>
-                <span className="block text-2xl sm:text-3xl font-extrabold text-theme-blue">100+</span>
-                <span className="block text-xs text-slate-500 mt-0.5">Global Ports</span>
+              <div className="bg-white p-3 rounded-lg border border-slate-200 text-center">
+                <span className="block text-xl sm:text-2xl font-extrabold text-theme-blue">20,000+</span>
+                <span className="block text-[11px] text-slate-500 mt-0.5">TEUs Handled</span>
+              </div>
+              <div className="bg-white p-3 rounded-lg border border-slate-200 text-center">
+                <span className="block text-xl sm:text-2xl font-extrabold text-theme-blue">30+</span>
+                <span className="block text-[11px] text-slate-500 mt-0.5">Team Members</span>
               </div>
             </div>
 
-            {/* Clean Action Link */}
+            {/* Action Link */}
             <div className="pt-2">
               <Link
                 href="/about"
                 className="inline-flex items-center space-x-2 text-sm font-semibold text-theme-orange hover:text-slate-900 transition-colors"
               >
-                <span>Read our full story and meet the team</span>
+                <span>Read our full story and director profiles</span>
                 <ArrowRight className="w-4 h-4" />
               </Link>
             </div>

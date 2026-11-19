@@ -22,7 +22,7 @@ export default function Footer() {
     },
     {
       name: 'WhatsApp',
-      href: 'https://wa.me/919920215011?text=Hello%20Seven%20Routes%20Logistics%2C%20I%20have%20an%20inquiry%20regarding%20freight%20shipping.',
+      href: 'https://wa.me/918128128791?text=Hello%20Seven%20Routes%20Logistics%2C%20I%20have%20an%20inquiry%20regarding%20freight%20shipping.',
       icon: WhatsAppIcon,
     },
     {
@@ -55,7 +55,7 @@ export default function Footer() {
               <div className="relative h-9 w-36 sm:h-10 sm:w-40">
                 <Image
                   src="/images/seven-routes-logo.png"
-                  alt="Seven Routes Logistics International Pvt Ltd"
+                  alt="Seven Routes Logistics International Pvt. Ltd."
                   fill
                   sizes="160px"
                   className="object-contain"
@@ -64,15 +64,15 @@ export default function Footer() {
             </Link>
 
             <p className="text-slate-400 text-xs leading-relaxed max-w-sm">
-              Connecting Cargo. Delivering Trust. Licensed Multimodal Transport Operator (MTO) and specialized ISO tank logistics provider.
+              Connecting Businesses. Moving Possibilities. Freight forwarding expertise with a specialised focus on chemical exports.
             </p>
 
             <div className="inline-flex items-center space-x-1.5 px-2.5 py-1 rounded bg-white/5 border border-white/10 text-[11px] text-slate-300">
               <ShieldCheck className="w-3.5 h-3.5 text-theme-orange shrink-0" />
-              <span>Govt. Reg. MTO • Licensed In-House CHA</span>
+              <span>Licensed: FMC • MTO • IEC | Estd. 2026</span>
             </div>
 
-            {/* Social Media Channels (Clickable to respective platforms) */}
+            {/* Social Media Channels */}
             <div className="pt-1">
               <span className="block text-[11px] font-semibold text-slate-400 mb-2 uppercase tracking-wider">
                 Connect With Us
@@ -125,51 +125,68 @@ export default function Footer() {
               </li>
               <li>
                 <Link href="/contact" className="hover:text-theme-orange transition-colors">
-                  Contact &amp; Ports
+                  Contact &amp; Offices
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Col 3: Direct Contacts & Ports (4 cols) */}
+          {/* Col 3: Direct Contacts & Addresses (4 cols) */}
           <div className="md:col-span-4 space-y-2.5">
             <h5 className="text-[11px] font-bold text-white uppercase tracking-wider">
-              Headquarters &amp; Hubs
+              Offices &amp; Contact
             </h5>
             <div className="space-y-2 text-xs">
               <div className="flex items-start space-x-2">
                 <MapPin className="w-3.5 h-3.5 text-theme-orange shrink-0 mt-0.5" />
-                <span className="text-slate-300">
-                  Office 208, D Wing, Neelkanth Business Park, Vidyavihar (W), Mumbai - 400086
-                </span>
+                <div className="text-slate-300 leading-snug">
+                  <strong className="text-white block">Corporate Office:</strong>
+                  1501, BLA Business Park, CTS No. 492 A 1 to 4 and 492 B, near Atlanta Center, Goregaon (E), Sonawala Road, Village Pahadi, Mumbai 400063
+                </div>
               </div>
 
-              <div className="flex items-center space-x-2">
+              <div className="flex items-start space-x-2">
+                <MapPin className="w-3.5 h-3.5 text-theme-orange shrink-0 mt-0.5" />
+                <div className="text-slate-300 leading-snug">
+                  <strong className="text-white block">Mumbai Office:</strong>
+                  1006, The Gateway by Wadhwa, Mulund - Goregaon Link Rd, opp. Registration Office Mulund West, Hira Nagar, Mulund West, Mumbai 400080
+                </div>
+              </div>
+
+              <div className="flex items-center space-x-2 pt-1">
                 <Phone className="w-3.5 h-3.5 text-theme-orange shrink-0" />
-                <a href="tel:+919920215011" className="hover:text-theme-orange transition-colors text-white font-medium">
-                  +91 99202 15011 / +91 98700 06982
+                <a href="tel:+918128128791" className="hover:text-theme-orange transition-colors text-white font-medium">
+                  +91 81281 28791
                 </a>
               </div>
 
-              <div className="flex items-center space-x-2">
-                <Mail className="w-3.5 h-3.5 text-theme-orange shrink-0" />
-                <a href="mailto:info@sevenroutes.com" className="hover:text-theme-orange transition-colors text-slate-300">
-                  info@sevenroutes.com
-                </a>
+              <div className="flex flex-col space-y-1">
+                <div className="flex items-center space-x-2">
+                  <Mail className="w-3.5 h-3.5 text-theme-orange shrink-0" />
+                  <a href="mailto:ops@sevenrouteslogistics.com" className="hover:text-theme-orange transition-colors text-slate-300">
+                    ops@sevenrouteslogistics.com
+                  </a>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <Mail className="w-3.5 h-3.5 text-theme-orange shrink-0" />
+                  <a href="mailto:neeraj@sevenrouteslogistics.com" className="hover:text-theme-orange transition-colors text-slate-300">
+                    neeraj@sevenrouteslogistics.com
+                  </a>
+                </div>
               </div>
 
               <div className="pt-1 text-[11px] text-slate-400">
-                <span className="text-theme-orange font-semibold">Active Desks:</span> Nhava Sheva (JNPT) • Mundra • Hazira • Ahmedabad
+                <span className="text-theme-orange font-semibold">Branches:</span> Mumbai (2) • Surat • Ahmedabad
               </div>
             </div>
           </div>
 
         </div>
 
-        {/* Bottom Bar: Ultra-Clean & Compact */}
+        {/* Bottom Bar */}
         <div className="mt-8 pt-4 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-2.5 text-[11px] text-slate-400">
           <div>
-            &copy; {new Date().getFullYear()} Seven Routes Logistics International Pvt Ltd. All rights reserved.
+            &copy; {new Date().getFullYear()} Seven Routes Logistics International Pvt. Ltd. All rights reserved.
           </div>
           <div className="flex items-center space-x-3 text-slate-400">
             <Link href="/about" className="hover:text-white transition-colors">

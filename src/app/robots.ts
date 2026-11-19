@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: '*',
       allow: '/',
     },
-    sitemap: 'https://sevenroutes.com/sitemap.xml',
+    sitemap: 'https://sevenrouteslogistics.com/sitemap.xml',
   };
 }

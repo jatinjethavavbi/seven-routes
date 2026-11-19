@@ -1,101 +1,77 @@
 'use client';
 
 import React from 'react';
-import { Award, Ship, Globe, CheckCircle, ShieldCheck } from 'lucide-react';
+import { Award, Ship, Globe, CheckCircle, ShieldCheck, Building2, Users } from 'lucide-react';
 
 export default function StatsBar() {
   const stats = [
     {
-      value: '14+',
-      label: 'Years of Industry Leadership',
-      subtext: 'Global freight forwarding pedigree',
+      value: '₹350+ Cr',
+      label: 'Turnover Managed',
+      subtext: 'Cumulative volume over 3 years',
       icon: Award,
     },
     {
-      value: '50,000+',
-      label: 'TEUs Shipped Globally',
-      subtext: 'FCL, LCL & ISO Tank Bulk',
+      value: '60%',
+      label: 'Chemical Export Volume',
+      subtext: 'Specialized chemical cargo focus',
       icon: Ship,
     },
     {
-      value: '100+',
-      label: 'Worldwide Port Networks',
-      subtext: 'Direct ocean carrier contracts',
+      value: '20,000+',
+      label: 'TEUs Handled',
+      subtext: 'Global container & ISO tank freight',
       icon: Globe,
     },
     {
-      value: '99.8%',
-      label: 'Statutory CHA Accuracy',
-      subtext: 'Smooth customs clearance',
-      icon: ShieldCheck,
+      value: '30+',
+      label: 'Logistics Professionals',
+      subtext: 'Offices in Mumbai, Ahmedabad & Surat',
+      icon: Users,
     },
   ];
 
   return (
-    <section className="bg-theme-smoke py-14 border-y border-theme-border">
+    <section className="bg-slate-50 py-12 sm:py-16 border-y border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-10">
+        <div className="text-center max-w-3xl mx-auto mb-10">
           <span className="text-xs font-bold text-theme-orange uppercase tracking-widest block mb-1">
-            Proven Maritime Track Record
+            Operating Strength &amp; Proven Track Record
           </span>
-          <h2 className="text-2xl sm:text-3xl font-bold font-heading text-theme-title">
-            Trusted by Global Importers &amp; Exporters Worldwide
+          <h2 className="text-2xl sm:text-3xl font-bold font-heading text-theme-blue">
+            Performance Backed by Experience &amp; Execution
           </h2>
+          <p className="text-xs sm:text-sm text-slate-500 mt-1.5">
+            Licensed by FMC, MTO, and IEC. Built on a cumulative turnover of over ₹350 crore managed by our core leadership team.
+          </p>
         </div>
 
         {/* 4 Clean Corporate Stat Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {stats.map((stat, idx) => {
             const IconComponent = stat.icon;
             return (
               <div
                 key={idx}
-                className="bg-white p-6 rounded border border-theme-border shadow-sm hover:border-theme-orange transition-colors text-center group"
+                className="bg-white p-5 sm:p-6 rounded-xl border border-slate-200 shadow-sm hover:border-theme-orange transition-all text-center group"
               >
-                <div className="w-12 h-12 mx-auto rounded-full bg-blue-50 group-hover:bg-amber-50 flex items-center justify-center text-theme-blue group-hover:text-theme-orange transition-colors mb-4">
-                  <IconComponent className="w-6 h-6" />
+                <div className="w-11 h-11 mx-auto rounded-full bg-blue-50 group-hover:bg-amber-50 flex items-center justify-center text-theme-blue group-hover:text-theme-orange transition-colors mb-3 sm:mb-4">
+                  <IconComponent className="w-5 h-5 sm:w-6 sm:h-6" />
                 </div>
-                <div className="text-3xl sm:text-4xl font-extrabold font-heading text-theme-title tracking-tight mb-1">
+                <div className="text-2xl sm:text-3xl lg:text-4xl font-extrabold font-heading text-theme-blue tracking-tight mb-1">
                   {stat.value}
                 </div>
-                <div className="text-sm font-bold text-slate-800 font-heading">
+                <div className="text-xs sm:text-sm font-bold text-slate-800 mb-0.5">
                   {stat.label}
                 </div>
-                <div className="text-xs text-theme-body mt-1">
+                <div className="text-[11px] sm:text-xs text-slate-500">
                   {stat.subtext}
                 </div>
               </div>
             );
           })}
-        </div>
-
-        {/* Corporate Trust Badges Strip */}
-        <div className="mt-8 bg-white border border-theme-border rounded p-4 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-theme-body">
-          <div className="flex items-center space-x-2 text-theme-title font-bold">
-            <span className="w-2.5 h-2.5 bg-theme-orange rounded-full" />
-            <span>OPERATIONAL ACCREDITATIONS:</span>
-          </div>
-
-          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
-            <div className="flex items-center space-x-1.5 text-slate-700">
-              <CheckCircle className="w-4 h-4 text-theme-blue shrink-0" />
-              <span>Multi-Modal Transport Operator (MTO)</span>
-            </div>
-            <div className="flex items-center space-x-1.5 text-slate-700">
-              <CheckCircle className="w-4 h-4 text-theme-blue shrink-0" />
-              <span>Licensed Custom House Agent (CHA)</span>
-            </div>
-            <div className="flex items-center space-x-1.5 text-slate-700">
-              <CheckCircle className="w-4 h-4 text-theme-blue shrink-0" />
-              <span>ISO Tank Hazardous Cargo Compliance</span>
-            </div>
-            <div className="flex items-center space-x-1.5 text-slate-700">
-              <CheckCircle className="w-4 h-4 text-theme-blue shrink-0" />
-              <span>Direct Gateway Port Footprint</span>
-            </div>
-          </div>
         </div>
 
       </div>

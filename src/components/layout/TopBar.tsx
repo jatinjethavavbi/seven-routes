@@ -11,19 +11,27 @@ export default function TopBar() {
           {/* Left: Contact Info */}
           <div className="flex items-center space-x-6 text-slate-200">
             <a
-              href="tel:+919920215011"
+              href="tel:+918128128791"
               className="flex items-center space-x-1.5 hover:text-theme-orange transition-colors"
             >
               <Phone className="w-3.5 h-3.5 text-theme-orange" />
-              <span>+91 99202 15011</span>
+              <span>+91 81281 28791</span>
             </a>
             <span className="text-white/20">•</span>
             <a
-              href="mailto:info@sevenroutes.com"
+              href="mailto:ops@sevenrouteslogistics.com"
               className="flex items-center space-x-1.5 hover:text-theme-orange transition-colors"
             >
               <Mail className="w-3.5 h-3.5 text-theme-orange" />
-              <span>info@sevenroutes.com</span>
+              <span>ops@sevenrouteslogistics.com</span>
+            </a>
+            <span className="text-white/20">•</span>
+            <a
+              href="mailto:neeraj@sevenrouteslogistics.com"
+              className="flex items-center space-x-1.5 hover:text-theme-orange transition-colors"
+            >
+              <Mail className="w-3.5 h-3.5 text-theme-orange" />
+              <span>neeraj@sevenrouteslogistics.com</span>
             </a>
           </div>
 
@@ -31,11 +39,11 @@ export default function TopBar() {
           <div className="flex items-center space-x-4 text-slate-200">
             <div className="flex items-center space-x-1.5">
               <MapPin className="w-3.5 h-3.5 text-theme-orange" />
-              <span>Mumbai (HQ) • Nhava Sheva (JNPT) • Mundra • Hazira</span>
+              <span>Mumbai (2) • Surat • Ahmedabad</span>
             </div>
             <span className="text-white/20">•</span>
             <span className="bg-white/10 text-white px-2 py-0.5 rounded text-[11px] font-medium tracking-wide">
-              Govt. Reg. MTO
+              Licensed: FMC • MTO • IEC
             </span>
           </div>
         </div>

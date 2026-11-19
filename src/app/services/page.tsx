@@ -16,131 +16,152 @@ import {
   CheckCircle2, 
   MapPin, 
   PhoneCall,
-  LayoutGrid
+  LayoutGrid,
+  ShieldCheck,
+  TrendingUp,
+  Percent,
+  CreditCard
 } from 'lucide-react';
 
 export default function ServicesPage() {
   const services = [
     {
-      id: 'sea-freight',
-      title: 'Sea Freight (FCL / LCL)',
-      shortTitle: 'Sea Freight',
-      category: 'Ocean Container Shipping',
-      icon: Ship,
-      image: '/images/services/sea-freight.jpg',
-      summary:
-        'Reliable full container load (FCL) bookings and less-than-container load (LCL) consolidation connecting Indian ports to major global destinations.',
-      overview:
-        'We manage scheduled container shipments with guaranteed vessel space allocations. Whether shipping full 20ft/40ft containers or smaller consolidated cargo, our team handles vessel booking, container pickup, and terminal delivery with complete visibility.',
-      highlights: [
-        "20' and 40' Standard Dry & High Cube containers",
-        'Refrigerated (Reefer) containers for temperature-sensitive cargo',
-        'Direct FCL vessel bookings & scheduled LCL consolidation',
-        'Port-to-port and complete door-to-door delivery',
-      ],
-      ports: 'Nhava Sheva (JNPT), Mundra, Hazira, and Chennai',
-    },
-    {
-      id: 'iso-tanks',
-      title: 'ISO Tanks & Liquid Bulk',
-      shortTitle: 'ISO Tanks',
-      category: 'Specialized Liquid Logistics',
-      icon: Box,
-      image: '/images/services/iso-tanks.jpg',
-      summary:
-        'Dedicated ISO tank containers engineered for safe international transport of food-grade liquids and hazardous chemical bulk.',
-      overview:
-        'Seven Routes Logistics specializes in liquid logistics using certified stainless steel ISO tank containers. We handle both food-grade consumables and dangerous goods (IMO classified chemicals) with strict adherence to safety, pressure testing, and sanitization protocols.',
-      highlights: [
-        'Certified T11 & T14 UN portable ISO tank fleet',
-        'Dedicated food-grade only tanks (zero chemical risk)',
-        'Class 3, 6, 8 & 9 hazardous chemical handling',
-        'Hydrostatic test certification & steam sanitization cleaning',
-      ],
-      ports: 'Nhava Sheva (JNPT), Mundra Tank Terminals, and Hazira',
-    },
-    {
-      id: 'custom-clearance',
-      title: 'Customs Clearance (CHA)',
-      shortTitle: 'Customs (CHA)',
-      category: 'Licensed Port Documentation',
-      icon: FileCheck2,
-      image: '/images/services/custom-clearance.jpg',
-      summary:
-        'Licensed Custom House Agency (CHA) operations ensuring prompt, compliant customs clearance across primary Indian ports.',
-      overview:
-        'Customs delays can cause heavy demurrage. Our in-house licensed customs brokers are stationed directly at port gates to manage ICEGATE filing, HS code classifications, statutory duty payments, and cargo physical inspections without middleman delays.',
-      highlights: [
-        'Direct electronic ICEGATE filing with Indian Customs',
-        'Accurate HS code classification and duty calculations',
-        'Export schemes (RoDTEP, Duty Drawback, EPCG licenses)',
-        'In-house customs staff stationed at JNPT, Mundra & Hazira',
-      ],
-      ports: 'Nhava Sheva (JNPT), Mundra Port, Hazira, and Kandla',
-    },
-    {
       id: 'freight-forwarding',
       title: 'International Freight Forwarding',
       shortTitle: 'Freight Forwarding',
-      category: 'Multimodal Global Logistics',
+      category: 'Export & Import Logistics',
       icon: Globe2,
       image: '/images/services/freight-forwarding.jpg',
       summary:
-        'End-to-end multimodal forwarding designed to streamline international shipping under a single Bill of Lading.',
+        'Comprehensive export and import freight solutions managing international sea and air freight across all major global trade corridors.',
       overview:
-        'We design efficient international shipping routes that combine sea, road, and air transit. As a government-registered Multimodal Transport Operator (MTO), we issue our own Bills of Lading and coordinate with over 100+ worldwide agents.',
+        'As a licensed Multimodal Transport Operator (MTO), Seven Routes Logistics delivers reliable end-to-end freight forwarding. We manage full container loads (FCL), consolidated cargo (LCL), and specialized air shipments under our own Multimodal Bills of Lading, backed by strong worldwide partner networks.',
       highlights: [
-        'Licensed Multimodal Transport Operator (MTO) Bill of Lading',
-        'Worldwide agent network in over 100+ countries',
-        'Marine cargo insurance and transit risk cover',
-        'Customized route planning to optimize transit time & costs',
+        'Global FCL container bookings and scheduled LCL consolidation',
+        'Licensed Multimodal Transport Operator (MTO) Bill of Lading issuance',
+        'Door-to-door and port-to-port multimodal cargo delivery',
+        'Coordinated transit tracking across global sea and air routes',
       ],
-      ports: 'All Major Indian Sea Ports & Global Gateways',
+      ports: 'Nhava Sheva (JNPT), Mundra, Hazira, and Global Gateways',
     },
     {
-      id: 'transportation',
-      title: 'Inland Haulage & Transport',
-      shortTitle: 'Inland Transport',
-      category: 'Container Cartage Fleet',
+      id: 'chemical-logistics',
+      title: 'Chemical Export Logistics',
+      shortTitle: 'Chemical Logistics',
+      category: 'Specialised Cargo Vertical (60% Volume)',
+      icon: Ship,
+      image: '/images/services/iso-tanks.jpg',
+      summary:
+        'Specialised logistics focus for chemical exports, accounting for approx. 60% of our business volumes across hazardous and non-hazardous cargo.',
+      overview:
+        'Chemical logistics demands stringent regulatory adherence, technical container readiness, and specialised handling. Our dedicated chemical operations desk possesses deep expertise in handling IMDG-classified dangerous goods (Classes 3, 6, 8, 9) and non-hazardous industrial chemicals with full statutory compliance.',
+      highlights: [
+        'Dedicated chemical operations desk with 10+ years vertical expertise',
+        'Specialised handling of IMDG dangerous goods (Classes 3, 6, 8, and 9)',
+        'Container selection, packing inspection, and MSDS verification',
+        'Stringent port terminal safety compliance and stowage approvals',
+      ],
+      ports: 'Nhava Sheva (JNPT), Hazira / Dahej, Mundra, and Global Chem Hubs',
+    },
+    {
+      id: 'freight-procurement',
+      title: 'Freight Procurement',
+      shortTitle: 'Freight Procurement',
+      category: 'Shipping Line Negotiations & Rates',
+      icon: TrendingUp,
+      image: '/images/services/sea-freight.jpg',
+      summary:
+        'Strategic capacity procurement from global shipping lines, competitive commercial terms negotiation, and volume rate management.',
+      overview:
+        'Leveraging our extensive industry relationships with leading container shipping lines and cumulative volume track record of over ₹350 crore, we secure committed vessel space allocations and competitive freight tariffs even during tight market conditions.',
+      highlights: [
+        'Direct negotiations with Tier-1 ocean container carriers',
+        'Committed vessel space allocations and equipment guarantees',
+        'Transparent freight pricing with index-linked or fixed tier structures',
+        'Proactive monitoring of global freight indices and blank sailings',
+      ],
+      ports: 'All Indian Container Ports & Major International Carrier Alliances',
+    },
+    {
+      id: 'shipment-execution',
+      title: 'Shipment Execution',
+      shortTitle: 'Shipment Execution',
+      category: 'Operational Booking & Coordination',
       icon: Truck,
       image: '/images/services/transportation.jpg',
       summary:
-        'Dedicated container trailer fleet providing reliable haulage between factory premises, inland depots, and marine terminals.',
+        'Precision container booking, equipment placement, on-dock terminal handling, and end-to-end shipment execution through to discharge.',
       overview:
-        'Our container trailer fleet bridges the gap between your manufacturing plant and the port. We provide timely placement of 20ft and 40ft skeletal trailers, multi-axle chassis for heavy ISO tanks, and real-time tracking from dispatch to terminal gate-in.',
+        'Our experienced ground operations team ensures error-free container release, survey verification, factory loading coordination, terminal gate-in before cut-off, and active onboard tracking until cargo arrives safely at destination discharge port.',
       highlights: [
-        'Heavy-duty 20ft & 40ft skeletal container trailers',
-        'Multi-axle chassis for heavy cargo and ISO tank containers',
-        'GPS-monitored vehicles for real-time tracking',
-        'Factory-to-port and CFS-to-terminal container movement',
+        'Rapid booking issuance and equipment release order processing',
+        'Factory container placement coordination and terminal gate-in tracking',
+        'Continuous monitoring of shipping line cut-offs and feeder schedules',
+        'Dedicated single-point coordinator for live milestone status updates',
       ],
-      ports: 'Maharashtra, Gujarat, Rajasthan & North Indian ICDs',
+      ports: 'Mumbai, Mundra, Hazira, Surat, Ahmedabad, and Hinterland ICDs',
     },
     {
-      id: 'supply-chain',
-      title: 'Supply Chain Management',
-      shortTitle: 'Supply Chain',
-      category: 'Logistics Optimization',
-      icon: Layers,
+      id: 'documentation',
+      title: 'Documentation & Compliance',
+      shortTitle: 'Documentation & CHA',
+      category: 'Bill of Lading & Statutory Filings',
+      icon: FileCheck2,
+      image: '/images/services/custom-clearance.jpg',
+      summary:
+        'Flawless Bill of Lading generation, statutory customs clearance filing, certificate management, and full regulatory trade compliance.',
+      overview:
+        'Documentation errors create expensive port demurrage and customs delays. Our documentation desk handles accurate Multimodal Bill of Lading issuance, ICEGATE electronic filings, export licenses, COO certificates, and regulatory approvals with maximum accuracy.',
+      highlights: [
+        'Prompt and accurate Multimodal Bill of Lading (MBL/HBL) issuance',
+        'Statutory customs filing and HS code verification under Indian Customs',
+        'Regulatory certificates, NOCs, and export incentive documentation',
+        'Licensed operations adhering to FMC, MTO, and IEC regulations',
+      ],
+      ports: 'Nhava Sheva (JNPT), Mundra Port, Hazira, and Central Customs Desks',
+    },
+    {
+      id: 'commercial-management',
+      title: 'Commercial Management',
+      shortTitle: 'Commercial & Credit',
+      category: 'Upfront Payments & Customer Credit',
+      icon: CreditCard,
       image: '/images/services/supply-chain.jpg',
       summary:
-        'Strategic shipment planning to eliminate container detention, port demurrage, and turnaround delays.',
+        'Upfront freight payment to shipping lines and agreed credit facilities to exporters and importers to support working capital.',
       overview:
-        'We help exporters and importers streamline their shipping pipelines. By coordinating factory production schedules with shipping line cut-offs and port storage allowances, we minimize container detention fees and transit bottlenecks.',
+        'Under our proven business model, Seven Routes Logistics makes upfront freight payments directly to shipping lines, negotiating commercial credit terms that enable exporters and importers to optimize their liquidity and concentrate on core manufacturing and trading.',
       highlights: [
-        'Container detention and port demurrage reduction strategies',
-        'Factory dispatch synchronization with ocean vessel schedules',
-        'Buffer storage and Container Freight Station (CFS) management',
-        'Single dedicated logistics coordinator for your account',
+        'Upfront freight payments to ocean carriers ensuring instant BL release',
+        'Tailored and agreed commercial credit facilities for regular clients',
+        'Transparent invoicing with consolidated disbursement accounts',
+        'Financial discipline ensuring seamless liquidity throughout transit',
       ],
-      ports: 'Mumbai HQ, Mundra, Hazira, and Ahmedabad Hub',
+      ports: 'Corporate Operations Desk, Mumbai',
+    },
+    {
+      id: 'iso-tanks',
+      title: 'ISO Tanks & Liquid Bulk Logistics',
+      shortTitle: 'ISO Tanks',
+      category: 'Certified Liquid Bulk Fleet',
+      icon: Box,
+      image: '/images/services/iso-tanks.jpg',
+      summary:
+        'Certified T11 and T14 ISO tank containers engineered for safe domestic and international transport of liquid chemicals and food-grade bulk.',
+      overview:
+        'Equipped with 316L stainless steel pressure shells, steam-heating manifolds, and emergency discharge valves, our ISO tank operations provide dependable transport for liquid chemicals, hazardous solvents, and bulk consumables with zero contamination risk.',
+      highlights: [
+        'Certified T11 & T14 UN portable ISO tank container operations',
+        'Handling of hazardous liquid chemicals and dedicated food-grade liquids',
+        'Periodic hydrostatic test certifications and steam sanitization reports',
+        'Specialised multi-axle skeletal chassis haulage from factory to dock',
+      ],
+      ports: 'Nhava Sheva, Mundra Liquid Terminals, and Hazira Port',
     },
   ];
 
-  // Default state is 'all' so ALL services appear when visiting the page!
   const [activeTab, setActiveTab] = useState<'all' | string>('all');
 
-  // Handle hash navigation (e.g. /services#iso-tanks)
   useEffect(() => {
     const handleHash = () => {
       const hash = window.location.hash.replace('#', '');
@@ -150,21 +171,16 @@ export default function ServicesPage() {
         setActiveTab('all');
       }
     };
+
     handleHash();
     window.addEventListener('hashchange', handleHash);
     return () => window.removeEventListener('hashchange', handleHash);
-  }, []);
+  }, [services]);
 
-  const selectService = (id: string) => {
-    setActiveTab(id);
-    if (id === 'all') {
-      window.history.replaceState(null, '', '/services');
-    } else {
-      window.history.replaceState(null, '', `/services#${id}`);
-    }
-  };
-
-  const selectedService = services.find((s) => s.id === activeTab);
+  const displayedServices =
+    activeTab === 'all'
+      ? services
+      : services.filter((s) => s.id === activeTab);
 
   return (
     <div className="min-h-screen flex flex-col bg-white">
@@ -172,231 +188,177 @@ export default function ServicesPage() {
 
       <main className="flex-1">
         
-        {/* Simple Page Header */}
+        {/* Header Section */}
         <section className="bg-slate-50 border-b border-slate-200 py-12 sm:py-16">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-2xl">
+            <div className="max-w-3xl">
               <div className="flex items-center space-x-2 text-xs font-semibold uppercase tracking-wider text-theme-orange mb-2">
                 <Link href="/" className="hover:underline text-slate-500">Home</Link>
                 <span>/</span>
-                <span>Services</span>
+                <span>Our Services</span>
               </div>
               <h1 className="text-2xl sm:text-4xl font-extrabold text-theme-blue tracking-tight">
-                Our Services
+                Our Logistics &amp; Freight Services
               </h1>
               <p className="text-sm sm:text-base text-slate-600 mt-2 leading-relaxed">
-                Comprehensive freight forwarding, specialized ISO tank liquid logistics, licensed customs clearance, and inland transport across India and worldwide.
+                Comprehensive freight solutions with a specialised focus on chemical exports. Backed by ₹350+ Cr managed turnover, experienced leadership, and licenses from FMC, MTO, and IEC.
               </p>
             </div>
           </div>
         </section>
 
-        {/* Services Showcase Section */}
-        <section className="py-12 sm:py-16">
+        {/* Tab Filter Navigation */}
+        <div className="sticky top-16 z-30 bg-white border-b border-slate-200 shadow-sm overflow-x-auto py-3">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            
-            {/* Top Navigation Tabs */}
-            <div className="flex flex-wrap items-center gap-2 mb-10 pb-4 border-b border-slate-200">
-              {/* All Services Tab */}
+            <div className="flex items-center space-x-2 sm:space-x-3 min-w-max">
               <button
-                type="button"
-                onClick={() => selectService('all')}
-                className={`px-4 py-2 rounded-md text-xs sm:text-sm font-semibold transition-all inline-flex items-center space-x-1.5 ${
+                onClick={() => {
+                  setActiveTab('all');
+                  window.location.hash = '';
+                }}
+                className={`flex items-center space-x-1.5 px-3.5 py-2 rounded-full text-xs font-semibold transition-all ${
                   activeTab === 'all'
-                    ? 'bg-theme-blue text-white shadow-sm'
-                    : 'bg-white text-slate-700 border border-slate-200 hover:bg-slate-50'
+                    ? 'bg-theme-orange text-white shadow-sm'
+                    : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
                 }`}
               >
-                <LayoutGrid className="w-4 h-4" />
-                <span>All Services (6)</span>
+                <LayoutGrid className="w-3.5 h-3.5" />
+                <span>All Capabilities ({services.length})</span>
               </button>
 
-              {/* Individual Service Tabs */}
-              {services.map((service) => {
-                const Icon = service.icon;
-                const isActive = service.id === activeTab;
+              {services.map((s) => {
+                const IconComponent = s.icon;
+                const isActive = activeTab === s.id;
                 return (
                   <button
-                    key={service.id}
-                    type="button"
-                    onClick={() => selectService(service.id)}
-                    className={`px-4 py-2 rounded-md text-xs sm:text-sm font-semibold transition-all inline-flex items-center space-x-1.5 ${
+                    key={s.id}
+                    onClick={() => {
+                      setActiveTab(s.id);
+                      window.location.hash = s.id;
+                    }}
+                    className={`flex items-center space-x-1.5 px-3.5 py-2 rounded-full text-xs font-semibold transition-all ${
                       isActive
-                        ? 'bg-theme-orange text-white shadow-sm'
-                        : 'bg-white text-slate-700 border border-slate-200 hover:bg-slate-50'
+                        ? 'bg-theme-blue text-white shadow-sm'
+                        : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
                     }`}
                   >
-                    <Icon className={`w-3.5 h-3.5 ${isActive ? 'text-white' : 'text-slate-500'}`} />
-                    <span>{service.shortTitle}</span>
+                    <IconComponent className="w-3.5 h-3.5" />
+                    <span>{s.shortTitle}</span>
                   </button>
                 );
               })}
             </div>
+          </div>
+        </div>
 
-            {/* VIEW 1: ALL SERVICES GRID (Default when visiting /services) */}
-            {activeTab === 'all' && (
-              <div className="space-y-12">
-                <div className="grid grid-cols-2 lg:grid-cols-3 gap-3.5 sm:gap-6 lg:gap-8">
-                  {services.map((service) => {
-                    const Icon = service.icon;
-                    return (
-                      <div
-                        key={service.id}
-                        className="bg-white rounded-xl border border-slate-200 overflow-hidden hover:shadow-md transition-shadow flex flex-col group"
-                      >
-                        {/* Image */}
-                        <div className="relative aspect-[16/10] sm:aspect-video md:h-48 w-full bg-slate-100 overflow-hidden">
-                          <Image
-                            src={service.image}
-                            alt={service.title}
-                            fill
-                            sizes="(max-width: 640px) 50vw, (max-width: 1024px) 50vw, 33vw"
-                            className="object-cover group-hover:scale-105 transition-transform duration-300"
-                          />
-                        </div>
-
-                        {/* Content */}
-                        <div className="p-3.5 sm:p-6 flex-1 flex flex-col justify-between">
-                          <div>
-                            <span className="text-[10px] sm:text-[11px] font-semibold text-theme-orange uppercase tracking-wider block mb-1">
-                              {service.category}
-                            </span>
-                            <h3 className="text-sm sm:text-lg font-bold text-theme-blue group-hover:text-theme-orange transition-colors line-clamp-2">
-                              {service.title}
-                            </h3>
-                            <p className="text-[11px] sm:text-sm text-slate-600 mt-1 sm:mt-2 leading-relaxed line-clamp-3">
-                              {service.summary}
-                            </p>
-
-                            <div className="mt-3 sm:mt-4 pt-2 sm:pt-3 border-t border-slate-100 flex items-center space-x-1.5 text-[10px] sm:text-xs text-slate-500">
-                              <MapPin className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-slate-400 shrink-0" />
-                              <span className="truncate">{service.ports}</span>
-                            </div>
-                          </div>
-
-                          {/* Action Button: Opens Detail View */}
-                          <div className="mt-3 sm:mt-5 pt-2.5 sm:pt-4 border-t border-slate-100">
-                            <button
-                              type="button"
-                              onClick={() => selectService(service.id)}
-                              className="inline-flex items-center space-x-1.5 text-xs font-semibold text-theme-orange hover:text-slate-900 transition-colors"
-                            >
-                              <span>View Full Details</span>
-                              <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                    );
-                  })}
-                </div>
-              </div>
-            )}
-
-            {/* VIEW 2: INDIVIDUAL SERVICE DETAIL (When a service is clicked) */}
-            {activeTab !== 'all' && selectedService && (
-              <div>
-                {/* Detail Card */}
-                <div className="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
-                  <div className="grid grid-cols-1 lg:grid-cols-12">
-                    
-                    {/* Left: Crisp Image */}
-                    <div className="lg:col-span-5 relative min-h-[260px] sm:min-h-[360px] lg:min-h-full bg-slate-100">
-                      <Image
-                        src={selectedService.image}
-                        alt={selectedService.title}
-                        fill
-                        sizes="(max-width: 1024px) 100vw, 42vw"
-                        className="object-cover"
-                        priority
-                      />
+        {/* Services Detail List */}
+        <section className="py-12 sm:py-16">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 sm:space-y-16">
+            {displayedServices.map((service, index) => (
+              <div
+                key={service.id}
+                id={service.id}
+                className="scroll-mt-32 rounded-2xl border border-slate-200 overflow-hidden bg-white shadow-sm hover:border-slate-300 transition-all"
+              >
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-0">
+                  
+                  {/* Photo Column */}
+                  <div className="lg:col-span-5 relative aspect-[16/10] lg:aspect-auto lg:h-full bg-slate-100 min-h-[260px]">
+                    <Image
+                      src={service.image}
+                      alt={service.title}
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 40vw"
+                      className="object-cover"
+                    />
+                    <div className="absolute top-4 left-4 bg-theme-blue/90 text-white text-xs font-bold px-3 py-1 rounded shadow">
+                      {service.category}
                     </div>
+                  </div>
 
-                    {/* Right: Clean & Clear Details */}
-                    <div className="lg:col-span-7 p-6 sm:p-10 space-y-6">
-                      
-                      {/* Category & Title */}
-                      <div>
-                        <span className="text-xs font-semibold text-theme-orange uppercase tracking-wider block mb-1">
-                          {selectedService.category}
-                        </span>
-                        <h2 className="text-2xl sm:text-3xl font-extrabold text-theme-blue tracking-tight">
-                          {selectedService.title}
-                        </h2>
+                  {/* Content Column */}
+                  <div className="lg:col-span-7 p-6 sm:p-10 flex flex-col justify-between space-y-6">
+                    <div>
+                      <div className="flex items-center space-x-2 text-xs font-bold text-theme-orange uppercase tracking-wider mb-2">
+                        <span>Service 0{index + 1}</span>
                       </div>
+                      
+                      <h2 className="text-xl sm:text-2xl font-extrabold text-theme-blue">
+                        {service.title}
+                      </h2>
 
-                      {/* Overview */}
-                      <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-                        {selectedService.overview}
+                      <p className="text-sm font-medium text-slate-700 mt-2 leading-relaxed">
+                        {service.summary}
                       </p>
 
-                      {/* Key Capabilities */}
-                      <div className="space-y-3 pt-2">
-                        <h3 className="text-xs font-bold uppercase tracking-wider text-slate-900">
-                          Key Capabilities &amp; Equipment
-                        </h3>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-                          {selectedService.highlights.map((point, idx) => (
-                            <div key={idx} className="flex items-start space-x-2 text-xs sm:text-sm text-slate-700">
+                      <p className="text-xs sm:text-sm text-slate-600 mt-3 leading-relaxed">
+                        {service.overview}
+                      </p>
+
+                      {/* Highlights */}
+                      <div className="mt-5 space-y-2 pt-4 border-t border-slate-100">
+                        <span className="block text-xs font-bold text-slate-800 uppercase tracking-wider mb-2">
+                          Key Capabilities:
+                        </span>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-slate-700">
+                          {service.highlights.map((h, i) => (
+                            <div key={i} className="flex items-start space-x-2">
                               <CheckCircle2 className="w-4 h-4 text-theme-orange shrink-0 mt-0.5" />
-                              <span>{point}</span>
+                              <span>{h}</span>
                             </div>
                           ))}
                         </div>
                       </div>
+                    </div>
 
-                      {/* Port Coverage */}
-                      <div className="p-3.5 bg-slate-50 rounded-lg border border-slate-200 flex items-start sm:items-center space-x-2.5 text-xs text-slate-700">
-                        <MapPin className="w-4 h-4 text-theme-orange shrink-0 mt-0.5 sm:mt-0" />
-                        <span>
-                          <strong>Primary Port Hubs:</strong> {selectedService.ports}
-                        </span>
+                    {/* Operational Gateway & CTA */}
+                    <div className="pt-4 border-t border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
+                      <div className="flex items-center space-x-1.5 text-slate-600">
+                        <MapPin className="w-4 h-4 text-theme-orange shrink-0" />
+                        <span><strong>Operational Desks:</strong> {service.ports}</span>
                       </div>
 
-                      {/* Actions */}
-                      <div className="pt-2 flex flex-wrap items-center gap-3.5">
-                        <Link
-                          href="/#quote"
-                          className="bg-theme-orange hover:bg-theme-orangeHover text-white font-medium text-sm px-6 py-3 rounded-md transition-colors shadow-sm inline-flex items-center space-x-2"
-                        >
-                          <span>Inquire for {selectedService.shortTitle}</span>
-                          <ArrowRight className="w-4 h-4" />
-                        </Link>
-
-                        <button
-                          type="button"
-                          onClick={() => selectService('all')}
-                          className="bg-white hover:bg-slate-50 text-slate-700 border border-slate-300 font-medium text-sm px-5 py-3 rounded-md transition-colors"
-                        >
-                          View Other Services
-                        </button>
-                      </div>
-
+                      <Link
+                        href="/#quote"
+                        className="inline-flex items-center justify-center space-x-2 bg-theme-orange hover:bg-theme-orangeHover text-white font-semibold px-4 py-2 rounded-md transition-colors shadow-sm text-xs shrink-0"
+                      >
+                        <span>Inquire About Rates</span>
+                        <ArrowRight className="w-3.5 h-3.5" />
+                      </Link>
                     </div>
 
                   </div>
+
                 </div>
               </div>
-            )}
+            ))}
+          </div>
+        </section>
 
-            {/* Assistance Banner */}
-            <div className="mt-12 p-6 sm:p-8 bg-slate-50 rounded-lg border border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
-              <div>
-                <h4 className="text-base font-bold text-slate-900">
-                  Have a custom shipping or ISO tank requirement?
-                </h4>
-                <p className="text-xs sm:text-sm text-slate-600 mt-1">
-                  Our central logistics operations desk in Mumbai can evaluate your cargo routes and rates.
-                </p>
-              </div>
+        {/* Bottom CTA */}
+        <section className="py-14 sm:py-16 border-t border-slate-200 bg-slate-50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
+            <h3 className="text-xl sm:text-2xl font-bold text-slate-900">
+              Need custom routing or volume freight capacity?
+            </h3>
+            <p className="text-sm text-slate-600 max-w-lg mx-auto">
+              Our central commercial desk in Mumbai is ready to assist with shipping line negotiations, container allocations, and credit arrangements.
+            </p>
+            <div className="pt-2 flex flex-wrap justify-center gap-3.5">
               <Link
                 href="/#quote"
-                className="bg-slate-900 hover:bg-slate-800 text-white font-medium text-xs uppercase tracking-wider px-5 py-3 rounded-md transition-colors shrink-0"
+                className="bg-theme-orange hover:bg-theme-orangeHover text-white font-medium text-sm px-6 py-2.5 rounded-md transition-colors shadow-sm inline-flex items-center space-x-2"
               >
-                Request a Freight Quote
+                <span>Request a Quote</span>
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+              <Link
+                href="/contact"
+                className="bg-white hover:bg-slate-100 text-slate-700 border border-slate-300 font-medium text-sm px-5 py-2.5 rounded-md transition-colors"
+              >
+                <span>Contact Our Offices</span>
               </Link>
             </div>
-
           </div>
         </section>
 

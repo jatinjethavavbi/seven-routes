@@ -65,12 +65,13 @@ export default function Navbar() {
   }, []);
 
   const services = [
-    { title: 'Sea Freight (FCL / LCL)', href: '/services#sea-freight' },
+    { title: 'International Freight Forwarding', href: '/services#freight-forwarding' },
+    { title: 'Chemical Export Logistics (Specialized)', href: '/services#chemical-logistics' },
+    { title: 'Freight Procurement', href: '/services#freight-procurement' },
+    { title: 'Shipment Execution', href: '/services#shipment-execution' },
+    { title: 'Documentation & Compliance', href: '/services#documentation' },
+    { title: 'Commercial Management', href: '/services#commercial-management' },
     { title: 'ISO Tanks & Liquid Bulk', href: '/services#iso-tanks' },
-    { title: 'Customs Clearance (CHA)', href: '/services#custom-clearance' },
-    { title: 'Freight Forwarding', href: '/services#freight-forwarding' },
-    { title: 'Inland Haulage & Transport', href: '/services#transportation' },
-    { title: 'Supply Chain Management', href: '/services#supply-chain' },
   ];
 
   return (
@@ -309,12 +310,12 @@ export default function Navbar() {
 
             <div className="text-xs text-slate-500 text-center space-y-1 pt-1">
               <a
-                href="tel:+919920215011"
+                href="tel:+918128128791"
                 className="block hover:text-theme-orange transition-colors font-medium text-slate-700"
               >
-                📞 +91 99202 15011
+                📞 +91 81281 28791
               </a>
-              <span className="block text-slate-400 text-[11px]">info@sevenroutes.com</span>
+              <span className="block text-slate-400 text-[11px]">ops@sevenrouteslogistics.com</span>
             </div>
           </div>
         </aside>

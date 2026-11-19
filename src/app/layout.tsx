@@ -2,39 +2,43 @@ import './globals.css';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://sevenroutes.com'),
+  metadataBase: new URL('https://sevenrouteslogistics.com'),
   title: {
-    default: 'Seven Routes Logistics International Pvt Ltd | Connecting Cargo. Delivering Trust.',
-    template: '%s | Seven Routes Logistics International Pvt Ltd',
+    default: 'Seven Routes Logistics International Pvt. Ltd. | Connecting Businesses. Moving Possibilities.',
+    template: '%s | Seven Routes Logistics International Pvt. Ltd.',
   },
   description:
-    'Seven Routes Logistics International Pvt Ltd — Connecting Cargo. Delivering Trust. Leading Indian freight forwarder, licensed Multimodal Transport Operator (MTO), specialized ISO tanks liquid bulk, and direct port customs clearance (CHA).',
+    'Seven Routes Logistics International Pvt. Ltd. — Freight forwarding expertise with a specialised focus on chemical exports. Professionally managed, licensed by FMC, MTO, and IEC, with offices across Mumbai, Ahmedabad, and Surat.',
   keywords: [
     'Seven Routes Logistics',
     'Seven Routes Logistics International Pvt Ltd',
-    'Freight Forwarder India',
-    'ISO Tank Logistics',
-    'Sea Freight FCL LCL',
-    'Customs Clearance CHA JNPT Mundra Hazira',
-    'Liquid Bulk Cargo India',
+    'Chemical Export Logistics',
+    'Freight Forwarding India',
+    'FMC Licensed Forwarder',
     'Multimodal Transport Operator MTO',
+    'IEC Licensed',
+    'ISO Tank Liquid Bulk',
+    'Ocean Freight FCL LCL',
+    'Mumbai Logistics',
+    'Ahmedabad Logistics',
+    'Surat Logistics',
   ],
-  authors: [{ name: 'Seven Routes Logistics International Pvt Ltd' }],
+  authors: [{ name: 'Seven Routes Logistics International Pvt. Ltd.' }],
   icons: {
     icon: '/images/logo.png',
   },
   openGraph: {
-    title: 'Seven Routes Logistics International Pvt Ltd | Global Freight Forwarder',
+    title: 'Seven Routes Logistics International Pvt. Ltd. | Connecting Businesses. Moving Possibilities.',
     description:
-      'Seamless international ocean freight, specialized ISO tank containers, and port customs clearance across India.',
-    url: 'https://sevenroutes.com',
-    siteName: 'Seven Routes Logistics',
+      'Freight forwarding expertise with a specialised focus on chemical exports. Licensed by FMC, MTO, and IEC.',
+    url: 'https://sevenrouteslogistics.com',
+    siteName: 'Seven Routes Logistics International Pvt. Ltd.',
     images: [
       {
         url: '/images/slider-1.webp',
         width: 1200,
         height: 630,
-        alt: 'Seven Routes Logistics Maritime Shipping',
+        alt: 'Seven Routes Logistics Maritime & Chemical Freight',
       },
     ],
     locale: 'en_IN',
