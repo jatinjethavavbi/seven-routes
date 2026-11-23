@@ -10,7 +10,7 @@ export default function AboutSection() {
     <section id="about" className="py-16 sm:py-20 bg-slate-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
-          
+
           {/* Left Column: Image */}
           <div className="lg:col-span-5">
             <div className="w-full rounded-2xl overflow-hidden border border-slate-200 shadow-sm bg-slate-100">
@@ -60,7 +60,7 @@ export default function AboutSection() {
                 <span className="block text-[11px] text-slate-500 mt-0.5">Chemical Exports</span>
               </div>
               <div className="bg-white p-3 rounded-lg border border-slate-200 text-center">
-                <span className="block text-xl sm:text-2xl font-extrabold text-theme-blue">20,000+</span>
+                <span className="block text-xl sm:text-2xl font-extrabold text-theme-blue">30,000+</span>
                 <span className="block text-[11px] text-slate-500 mt-0.5">TEUs Handled</span>
               </div>
               <div className="bg-white p-3 rounded-lg border border-slate-200 text-center">

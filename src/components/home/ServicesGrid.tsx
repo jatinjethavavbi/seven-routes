@@ -13,53 +13,53 @@ export default function ServicesGrid() {
       image: '/images/services/freight-forwarding.jpg',
       badge: 'Multimodal Solutions',
       description:
-        'Comprehensive export and import freight solutions across major ocean container shipping routes and air freight corridors.',
+        'Comprehensive export and import freight solutions managing international ocean container shipping routes and air freight corridors.',
       href: '/services#freight-forwarding',
     },
     {
-      id: 'chemical-logistics',
-      title: 'Chemical & Pharma Export Logistics',
+      id: 'chemical-pharma-handling',
+      title: 'Chemical & Pharma Cargo Handling',
       image: '/images/services/iso-tanks.jpg',
-      badge: 'Core Specialisation',
+      badge: 'Specialised Vertical',
       description:
-        'Specialised focus on chemicals and pharma cargo, handling dangerous goods (IMDG Classes 2, 3, 4, 5, 6, 8, 9) and temperature-controlled or liquid bulk.',
-      href: '/services#chemical-logistics',
+        'Specialised handling of hazardous chemicals (IMDG Classes 2, 3, 4, 5, 6, 8, 9), certified ISO tanks, and temperature-controlled pharma cargo.',
+      href: '/services#chemical-pharma-handling',
     },
     {
       id: 'freight-procurement',
-      title: 'Freight Procurement',
+      title: 'Freight Procurement - Ocean & Air Cargo',
       image: '/images/services/sea-freight.jpg',
-      badge: 'Direct Carrier Contracts',
+      badge: 'Ocean (FCL/LCL) & Air',
       description:
-        'Proactive shipping line capacity procurement, long-term rate negotiations, and competitive volume tier management.',
+        'Proactive capacity procurement from global shipping lines, Tier-1 carrier volume allocations, competitive FCL/LCL ocean freight, and scheduled air cargo.',
       href: '/services#freight-procurement',
     },
     {
-      id: 'shipment-execution',
-      title: 'Shipment Execution',
+      id: 'special-equipment',
+      title: 'Special Equipment Handling - OOG, Reefer',
       image: '/images/services/transportation.jpg',
-      badge: 'End-to-End Coordination',
+      badge: 'OOG & Reefer Containers',
       description:
-        'Container booking, timely depot equipment release, terminal cartage, and complete operational tracking from factory to discharge port.',
-      href: '/services#shipment-execution',
+        'Specialised Out-of-Gauge (OOG), flat rack, and open-top containers for heavy machinery, alongside advanced Reefer units (-30°C to +30°C) for sensitive perishables.',
+      href: '/services#special-equipment',
     },
     {
-      id: 'documentation',
-      title: 'Documentation & Compliance',
+      id: 'clearance-transportation',
+      title: 'Clearance and Local Transportation',
       image: '/images/services/custom-clearance.jpg',
-      badge: 'Statutory Compliance',
+      badge: 'CHA & Inland Haulage',
       description:
-        'Precision issuance of Multimodal Bills of Lading, statutory customs filing, certificate of origin, and full regulatory clearance.',
-      href: '/services#documentation',
+        'Licensed Custom House Agency (CHA) port clearance with direct ICEGATE electronic filing and dedicated container trailer fleet for factory-to-port haulage.',
+      href: '/services#clearance-transportation',
     },
     {
-      id: 'commercial-management',
-      title: 'Commercial Management',
+      id: 'agency-network',
+      title: 'Worldwide Agency Network',
       image: '/images/services/supply-chain.jpg',
-      badge: 'Credit & Financing',
+      badge: 'Global Network & Partners',
       description:
-        'Upfront freight financing to shipping lines, flexible agreed credit facilities for clients, and seamless commercial coordination.',
-      href: '/services#commercial-management',
+        'Extensive international partner offices across 100+ countries, offering seamless destination customs clearance, DAP/DDP deliveries, and global end-to-end visibility.',
+      href: '/services#agency-network',
     },
   ];
 
@@ -70,13 +70,13 @@ export default function ServicesGrid() {
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-12">
           <span className="text-xs font-semibold text-theme-orange uppercase tracking-wider block mb-2">
-            What We Do
+            Our Cargo Services
           </span>
           <h2 className="text-2xl sm:text-3xl font-extrabold text-theme-blue tracking-tight">
-            Our Core Services
+            Comprehensive Cargo Logistics Solutions
           </h2>
           <p className="text-sm sm:text-base text-slate-600 mt-2">
-            End-to-end freight solutions and specialised chemical export logistics backed by experienced leadership and proven execution.
+            Specialised freight solutions, dedicated chemical &amp; pharma handling, and worldwide network coverage backed by experienced leadership and disciplined execution.
           </p>
         </div>
 

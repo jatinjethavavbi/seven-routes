@@ -376,13 +376,12 @@ export default function ContactPage() {
                           onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
                           className="w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-theme-orange focus:bg-white"
                         >
-                          <option value="International Freight Forwarding">International Freight Forwarding (Ocean/Air)</option>
-                          <option value="Chemical Export Logistics">Chemical Export Logistics (Specialized)</option>
-                          <option value="Freight Procurement">Freight Procurement &amp; Rate Management</option>
-                          <option value="Shipment Execution">Shipment Execution &amp; Booking</option>
-                          <option value="Documentation & Compliance">Documentation &amp; Customs Clearance</option>
-                          <option value="Commercial Management">Commercial Management &amp; Credit</option>
-                          <option value="ISO Tanks & Liquid Bulk">ISO Tanks &amp; Liquid Bulk</option>
+                          <option value="International Freight Forwarding">International Freight Forwarding</option>
+                          <option value="Chemical & Pharma Cargo Handling">Chemical &amp; Pharma Cargo Handling</option>
+                          <option value="Freight Procurement - Ocean (FCL, LCL) and Air Cargo">Freight Procurement - Ocean (FCL, LCL) &amp; Air Cargo</option>
+                          <option value="Special Equipment Handling - OOG, Reefer">Special Equipment Handling - OOG, Reefer</option>
+                          <option value="Clearance and Local Transportation">Clearance and Local Transportation</option>
+                          <option value="Worldwide Agency Network">Worldwide Agency Network</option>
                         </select>
                       </div>
 

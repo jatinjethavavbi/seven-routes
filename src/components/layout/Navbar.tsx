@@ -66,12 +66,11 @@ export default function Navbar() {
 
   const services = [
     { title: 'International Freight Forwarding', href: '/services#freight-forwarding' },
-    { title: 'Chemical & Pharma Logistics (Specialized)', href: '/services#chemical-logistics' },
-    { title: 'Freight Procurement', href: '/services#freight-procurement' },
-    { title: 'Shipment Execution', href: '/services#shipment-execution' },
-    { title: 'Documentation & Compliance', href: '/services#documentation' },
-    { title: 'Commercial Management', href: '/services#commercial-management' },
-    { title: 'ISO Tanks & Liquid Bulk', href: '/services#iso-tanks' },
+    { title: 'Chemical & Pharma Cargo Handling', href: '/services#chemical-pharma-handling' },
+    { title: 'Freight Procurement (Ocean & Air)', href: '/services#freight-procurement' },
+    { title: 'Special Equipment Handling (OOG, Reefer)', href: '/services#special-equipment' },
+    { title: 'Clearance & Local Transportation', href: '/services#clearance-transportation' },
+    { title: 'Worldwide Agency Network', href: '/services#agency-network' },
   ];
 
   return (

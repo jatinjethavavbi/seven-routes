@@ -6,13 +6,13 @@ export default function StatsBar() {
   return (
     <section aria-label="Key business statistics" className="bg-white py-8 sm:py-12 box-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col gap-[clamp(12px,2vw,24px)] box-border">
-        
+
         {/* 4 Cards Grid: 1 col on <380px, 2 cols on mobile/tablet (<1024px), 4 cols on desktop (>=1024px) */}
         <dl className="grid grid-cols-2 max-[379px]:grid-cols-1 lg:grid-cols-4 gap-[clamp(12px,2vw,24px)] items-stretch m-0 p-0 box-border">
-          
+
           {/* Card 1: 350+ Cr */}
           <div className="bg-[#F6F8FC] rounded-[18px] sm:rounded-[22px] p-[clamp(16px,2.5vw,28px)] border border-[#EBF0F8]/80 shadow-[0_2px_8px_rgba(15,23,42,0.03)] flex flex-col justify-between min-w-0 box-border hover:shadow-md transition-shadow">
-            <dd className="m-0 font-black text-[#F05A28] tracking-tight leading-none whitespace-nowrap text-[clamp(2rem,4vw,3.5rem)] flex items-baseline">
+            <dd className="m-0 font-black text-theme-orange tracking-tight leading-none whitespace-nowrap text-[clamp(2rem,4vw,3.5rem)] flex items-baseline">
               <span>350+</span>
               <span className="text-[0.55em] font-extrabold ml-1.5 align-baseline">Cr</span>
             </dd>
@@ -44,7 +44,7 @@ export default function StatsBar() {
           {/* Card 4: 3 */}
           <div className="bg-[#F6F8FC] rounded-[18px] sm:rounded-[22px] p-[clamp(16px,2.5vw,28px)] border border-[#EBF0F8]/80 shadow-[0_2px_8px_rgba(15,23,42,0.03)] flex flex-col justify-between min-w-0 box-border hover:shadow-md transition-shadow">
             <dd className="m-0 font-black text-[#112347] tracking-tight leading-none whitespace-nowrap text-[clamp(2rem,4vw,3.5rem)] flex items-baseline">
-              <span>3</span>
+              <span>4</span>
             </dd>
             <dt className="m-0 text-[clamp(0.8rem,1.2vw,0.95rem)] leading-[1.4] font-bold text-[#112347] mt-4 pt-2">
               Strategic office locations

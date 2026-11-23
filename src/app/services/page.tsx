@@ -15,12 +15,10 @@ import {
   ArrowRight, 
   CheckCircle2, 
   MapPin, 
-  PhoneCall,
+  TrendingUp,
   LayoutGrid,
   ShieldCheck,
-  TrendingUp,
-  Percent,
-  CreditCard
+  Network
 } from 'lucide-react';
 
 export default function ServicesPage() {
@@ -29,11 +27,11 @@ export default function ServicesPage() {
       id: 'freight-forwarding',
       title: 'International Freight Forwarding',
       shortTitle: 'Freight Forwarding',
-      category: 'Export & Import Logistics',
+      category: 'Multimodal Export & Import Logistics',
       icon: Globe2,
       image: '/images/services/freight-forwarding.jpg',
       summary:
-        'Comprehensive export and import freight solutions managing international sea and air freight across all major global trade corridors.',
+        'Comprehensive export and import freight solutions managing international ocean and air freight across major global trade corridors.',
       overview:
         'As a licensed Multimodal Transport Operator (MTO), Seven Routes Logistics delivers reliable end-to-end freight forwarding. We manage full container loads (FCL), consolidated cargo (LCL), and specialized air shipments under our own Multimodal Bills of Lading, backed by strong worldwide partner networks.',
       highlights: [
@@ -45,10 +43,10 @@ export default function ServicesPage() {
       ports: 'Nhava Sheva (JNPT), Mundra, Hazira, and Global Gateways',
     },
     {
-      id: 'chemical-logistics',
-      title: 'Chemical & Pharma Export Logistics',
+      id: 'chemical-pharma-handling',
+      title: 'Chemical & Pharma Cargo Handling',
       shortTitle: 'Chemical & Pharma',
-      category: 'Specialised Cargo Vertical (Pharma & Chemicals)',
+      category: 'Specialised Cargo Vertical',
       icon: Ship,
       image: '/images/services/iso-tanks.jpg',
       summary:
@@ -58,105 +56,86 @@ export default function ServicesPage() {
       highlights: [
         'Dedicated chemical & pharma operations desk with 10+ years vertical expertise',
         'Specialised handling of IMDG dangerous goods (Classes 2, 3, 4, 5, 6, 8, and 9)',
-        'Container selection, packing inspection, and MSDS verification',
-        'Stringent port terminal safety compliance and stowage approvals',
+        'Certified T11 & T14 UN portable ISO tank containers for liquid bulk',
+        'Cold-chain temperature management and packaging verification for pharma exports',
       ],
       ports: 'Nhava Sheva (JNPT), Hazira / Dahej, Mundra, and Global Chem Hubs',
     },
     {
       id: 'freight-procurement',
-      title: 'Freight Procurement',
+      title: 'Freight Procurement - Ocean (FCL, LCL) and Air Cargo',
       shortTitle: 'Freight Procurement',
-      category: 'Shipping Line Negotiations & Rates',
+      category: 'Shipping Line & Airline Negotiations',
       icon: TrendingUp,
       image: '/images/services/sea-freight.jpg',
       summary:
-        'Strategic capacity procurement from global shipping lines, competitive commercial terms negotiation, and volume rate management.',
+        'Strategic capacity procurement from global ocean shipping lines and commercial air carriers, competitive terms negotiation, and volume rate management.',
       overview:
-        'Leveraging our extensive industry relationships with leading container shipping lines and cumulative volume track record of over ₹350 crore, we secure committed vessel space allocations and competitive freight tariffs even during tight market conditions.',
+        'Leveraging our extensive industry relationships with leading container shipping lines and international air cargo carriers, we secure committed space allocations and competitive freight tariffs for FCL containerized shipments, scheduled LCL consolidation, and expedited air cargo even during tight market conditions.',
       highlights: [
-        'Direct negotiations with Tier-1 ocean container carriers',
-        'Committed vessel space allocations and equipment guarantees',
-        'Transparent freight pricing with index-linked or fixed tier structures',
-        'Proactive monitoring of global freight indices and blank sailings',
+        'Direct volume contracts with Tier-1 ocean container carriers and airlines',
+        'Committed vessel space allocations, container guarantees, and peak-season protection',
+        'Transparent ocean tariff structures for FCL containerized and scheduled LCL cargo',
+        'Express air freight options for high-value, perishable, and time-critical consignments',
       ],
-      ports: 'All Indian Container Ports & Major International Carrier Alliances',
+      ports: 'All Indian Container Ports, Major Air Cargo Terminals & Global Carrier Alliances',
     },
     {
-      id: 'shipment-execution',
-      title: 'Shipment Execution',
-      shortTitle: 'Shipment Execution',
-      category: 'Operational Booking & Coordination',
-      icon: Truck,
+      id: 'special-equipment',
+      title: 'Special Equipment Handling - OOG, Reefer',
+      shortTitle: 'Special Equipment',
+      category: 'Project, Out-of-Gauge & Cold Chain',
+      icon: Box,
       image: '/images/services/transportation.jpg',
       summary:
-        'Precision container booking, equipment placement, on-dock terminal handling, and end-to-end shipment execution through to discharge.',
+        'Technical engineering and handling of Out-of-Gauge (OOG), flat rack, and open-top containers, alongside advanced refrigerated (Reefer) equipment.',
       overview:
-        'Our experienced ground operations team ensures error-free container release, survey verification, factory loading coordination, terminal gate-in before cut-off, and active onboard tracking until cargo arrives safely at destination discharge port.',
+        'Specialized cargo demands customized technical equipment and handling protocols. We provide specialized Open Top (OT), Flat Rack (FR), and Platform containers for heavy machinery and over-dimensional project cargo, as well as microprocessor-controlled Refrigerated (Reefer) containers maintaining precise setpoint temperatures (-30°C to +30°C) for pharmaceuticals, chemicals, and perishables.',
       highlights: [
-        'Rapid booking issuance and equipment release order processing',
-        'Factory container placement coordination and terminal gate-in tracking',
-        'Continuous monitoring of shipping line cut-offs and feeder schedules',
-        'Dedicated single-point coordinator for live milestone status updates',
+        'Out of Gauge (OOG) and Project Cargo: Flat Rack, Open Top, and Heavy-Duty Platforms',
+        'Complete technical route surveys, lashing, chocking, and crane hook-to-hook supervision',
+        'Micro-controlled Reefer container fleet with cold-treatment and humidity control',
+        'Pre-trip inspection (PTI) certification and round-the-clock temperature data monitoring',
       ],
-      ports: 'Mumbai, Mundra, Hazira, Surat, Ahmedabad, and Hinterland ICDs',
+      ports: 'Nhava Sheva (JNPT), Mundra, Hazira, Chennai, and Major Port Terminals',
     },
     {
-      id: 'documentation',
-      title: 'Documentation & Compliance',
-      shortTitle: 'Documentation & CHA',
-      category: 'Bill of Lading & Statutory Filings',
+      id: 'clearance-transportation',
+      title: 'Clearance and Local Transportation',
+      shortTitle: 'Clearance & Transport',
+      category: 'Customs House Agency (CHA) & Inland Haulage',
       icon: FileCheck2,
       image: '/images/services/custom-clearance.jpg',
       summary:
-        'Flawless Bill of Lading generation, statutory customs clearance filing, certificate management, and full regulatory trade compliance.',
+        'Licensed Custom House Agency (CHA) customs clearance combined with a dedicated container trailer fleet connecting factory gates to port terminals.',
       overview:
-        'Documentation errors create expensive port demurrage and customs delays. Our documentation desk handles accurate Multimodal Bill of Lading issuance, ICEGATE electronic filings, export licenses, COO certificates, and regulatory approvals with maximum accuracy.',
+        'Customs clearance bottlenecks and inland haulage delays can cause severe demurrage and operational disruption. Our in-house licensed customs brokers are stationed directly at primary port gates to manage electronic ICEGATE filings, HS code classifications, and cargo inspection, while our container trailer fleet bridges the gap between your manufacturing plant, Container Freight Stations (CFS), and marine docks.',
       highlights: [
-        'Prompt and accurate Multimodal Bill of Lading (MBL/HBL) issuance',
-        'Statutory customs filing and HS code verification under Indian Customs',
-        'Regulatory certificates, NOCs, and export incentive documentation',
-        'Licensed operations adhering to FMC, MTO, and IEC regulations',
+        'Direct in-house Custom House Agency (CHA) operations at JNPT, Mundra, and Hazira',
+        'Fast electronic ICEGATE documentation, Bill of Entry, and Shipping Bill clearance',
+        'Heavy-duty 20ft & 40ft skeletal container trailers and multi-axle chassis for heavy loads',
+        'Factory-to-port, CFS-to-terminal, and Inland Container Depot (ICD) haulage connectivity',
       ],
-      ports: 'Nhava Sheva (JNPT), Mundra Port, Hazira, and Central Customs Desks',
+      ports: 'Nhava Sheva (JNPT), Mundra, Hazira, Ahmedabad ICDs, Surat & Regional Belts',
     },
     {
-      id: 'commercial-management',
-      title: 'Commercial Management',
-      shortTitle: 'Commercial & Credit',
-      category: 'Upfront Payments & Customer Credit',
-      icon: CreditCard,
+      id: 'agency-network',
+      title: 'Worldwide Agency Network',
+      shortTitle: 'Worldwide Agency Network',
+      category: 'Global Reach & Strategic Partnerships',
+      icon: Network,
       image: '/images/services/supply-chain.jpg',
       summary:
-        'Upfront freight payment to shipping lines and agreed credit facilities to exporters and importers to support working capital.',
+        'Strategic international agency agreements and partnerships across 100+ countries covering 6 continents, ensuring seamless global logistics execution.',
       overview:
-        'Under our proven business model, Seven Routes Logistics makes upfront freight payments directly to shipping lines, negotiating commercial credit terms that enable exporters and importers to optimize their liquidity and concentrate on core manufacturing and trading.',
+        'Global trade requires reliable execution at both origin and destination. Seven Routes Logistics maintains an extensive worldwide agency network with trusted overseas partners and exclusive agency arrangements across the USA, Europe, Middle East (UAE), Africa, and Latin America (Brazil). This global footprint allows us to offer smooth destination customs clearance, door delivery (DAP/DDP), warehousing, and local inland transport worldwide.',
       highlights: [
-        'Upfront freight payments to ocean carriers ensuring instant BL release',
-        'Tailored and agreed commercial credit facilities for regular clients',
-        'Transparent invoicing with consolidated disbursement accounts',
-        'Financial discipline ensuring seamless liquidity throughout transit',
+        'Access to trusted agency network partners across 100+ countries on 6 continents',
+        'Exclusive agency contracts and strategic coverage in USA, Europe, Africa, Brazil, and UAE',
+        'Destination customs clearance, DDP/DAP terms, and last-mile international delivery',
+        'Single-window visibility and real-time coordination connecting Indian exporters with global buyers',
       ],
-      ports: 'Corporate Operations Desk, Mumbai',
-    },
-    {
-      id: 'iso-tanks',
-      title: 'ISO Tanks & Liquid Bulk Logistics',
-      shortTitle: 'ISO Tanks',
-      category: 'Certified Liquid Bulk Fleet',
-      icon: Box,
-      image: '/images/services/iso-tanks.jpg',
-      summary:
-        'Certified T11 and T14 ISO tank containers engineered for safe domestic and international transport of liquid chemicals and food-grade bulk.',
-      overview:
-        'Equipped with 316L stainless steel pressure shells, steam-heating manifolds, and emergency discharge valves, our ISO tank operations provide dependable transport for liquid chemicals, hazardous solvents, and bulk consumables with zero contamination risk.',
-      highlights: [
-        'Certified T11 & T14 UN portable ISO tank container operations',
-        'Handling of hazardous liquid chemicals (Classes 2, 3, 4, 5, 6, 8, 9) and dedicated food-grade liquids',
-        'Periodic hydrostatic test certifications and steam sanitization reports',
-        'Specialised multi-axle skeletal chassis haulage from factory to dock',
-      ],
-      ports: 'Nhava Sheva, Mundra Liquid Terminals, and Hazira Port',
+      ports: 'Global Maritime Hubs, Major International Airports & Inland Logistics Corridors',
     },
   ];
 
@@ -198,10 +177,10 @@ export default function ServicesPage() {
                 <span>Our Services</span>
               </div>
               <h1 className="text-2xl sm:text-4xl font-extrabold text-theme-blue tracking-tight">
-                Our Logistics &amp; Freight Services
+                Our Cargo Services
               </h1>
               <p className="text-sm sm:text-base text-slate-600 mt-2 leading-relaxed">
-                Comprehensive freight solutions with a specialised focus on chemical exports. Backed by ₹350+ Cr managed turnover, experienced leadership, and licenses from FMC, MTO, and IEC.
+                Comprehensive cargo solutions: international freight forwarding, specialised chemical &amp; pharma handling, freight procurement, special equipment (OOG &amp; Reefer), port clearance, and a trusted worldwide agency network.
               </p>
             </div>
           </div>
@@ -223,7 +202,7 @@ export default function ServicesPage() {
                 }`}
               >
                 <LayoutGrid className="w-3.5 h-3.5" />
-                <span>All Capabilities ({services.length})</span>
+                <span>All Cargo Services ({services.length})</span>
               </button>
 
               {services.map((s) => {
@@ -280,7 +259,7 @@ export default function ServicesPage() {
                   <div className="lg:col-span-7 p-6 sm:p-10 flex flex-col justify-between space-y-6">
                     <div>
                       <div className="flex items-center space-x-2 text-xs font-bold text-theme-orange uppercase tracking-wider mb-2">
-                        <span>Service 0{index + 1}</span>
+                        <span>Cargo Service 0{index + 1}</span>
                       </div>
                       
                       <h2 className="text-xl sm:text-2xl font-extrabold text-theme-blue">
@@ -315,7 +294,7 @@ export default function ServicesPage() {
                     <div className="pt-4 border-t border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
                       <div className="flex items-center space-x-1.5 text-slate-600">
                         <MapPin className="w-4 h-4 text-theme-orange shrink-0" />
-                        <span><strong>Operational Desks:</strong> {service.ports}</span>
+                        <span><strong>Coverage:</strong> {service.ports}</span>
                       </div>
 
                       <Link
@@ -339,10 +318,10 @@ export default function ServicesPage() {
         <section className="py-14 sm:py-16 border-t border-slate-200 bg-slate-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
             <h3 className="text-xl sm:text-2xl font-bold text-slate-900">
-              Need custom routing or volume freight capacity?
+              Need custom cargo routing, OOG equipment, or worldwide door delivery?
             </h3>
             <p className="text-sm text-slate-600 max-w-lg mx-auto">
-              Our central commercial desk in Mumbai is ready to assist with shipping line negotiations, container allocations, and credit arrangements.
+              Our central commercial desk and international agency network are ready to coordinate your shipments with rate efficiency and complete regulatory compliance.
             </p>
             <div className="pt-2 flex flex-wrap justify-center gap-3.5">
               <Link

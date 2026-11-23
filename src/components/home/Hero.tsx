@@ -17,10 +17,12 @@ export default function Hero() {
       {/* Content */}
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-24 z-10 w-full">
         <div className="max-w-3xl space-y-6">
-          
-          <div className="inline-flex items-center space-x-2 bg-theme-orange/20 border border-theme-orange/40 text-theme-orange px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider">
-            <ShieldCheck className="w-4 h-4" />
-            <span>Connecting Businesses. Moving Possibilities.</span>
+
+          <div className="inline-flex items-center gap-2 bg-theme-orange/20 border border-theme-orange/40 text-theme-orange px-3.5 py-1.5 rounded-full text-[11px] sm:text-xs font-semibold uppercase tracking-wider max-w-full">
+            <ShieldCheck className="w-4 h-4 shrink-0" />
+            <span className="leading-snug">
+              Connecting Cargo. Delivering Trust.
+            </span>
           </div>
 
           <h1 className="text-3xl sm:text-5xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight">
@@ -57,12 +59,7 @@ export default function Hero() {
             <span>•</span>
             <span className="flex items-center space-x-1.5">
               <CheckCircle2 className="w-3.5 h-3.5 text-theme-orange" />
-              <span>20,000+ TEUs Handled</span>
-            </span>
-            <span>•</span>
-            <span className="flex items-center space-x-1.5">
-              <CheckCircle2 className="w-3.5 h-3.5 text-theme-orange" />
-              <span>50% Chemicals • 20% Pharma</span>
+              <span>30,000+ TEUs Handled</span>
             </span>
             <span>•</span>
             <span className="flex items-center space-x-1.5">
