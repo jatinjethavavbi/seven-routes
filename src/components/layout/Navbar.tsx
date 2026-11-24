@@ -71,6 +71,7 @@ export default function Navbar() {
     { title: 'Special Equipment Handling (OOG, Reefer)', href: '/services#special-equipment' },
     { title: 'Clearance & Local Transportation', href: '/services#clearance-transportation' },
     { title: 'Worldwide Agency Network', href: '/services#agency-network' },
+    { title: 'Textile Machinery Imports', href: '/services#textile-machinery-imports' },
   ];
 
   return (
@@ -212,7 +213,7 @@ export default function Navbar() {
           <div className="flex items-center justify-between p-4 border-b border-slate-100">
             <Link href="/" onClick={closeMobileMenu} className="relative h-9 w-36 block">
               <Image
-                src="/images/seven-routes-logo.png"
+                src="/images/website-logo.webp"
                 alt="Seven Routes Logistics"
                 fill
                 sizes="144px"

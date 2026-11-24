@@ -48,19 +48,27 @@ export default function QuoteSection() {
         message: formData.message,
       };
 
-      await fetch(GOOGLE_SCRIPT_URL, {
+      const res = await fetch('/api/contact', {
         method: 'POST',
-        mode: 'no-cors',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(payload),
       });
 
+      const data = await res.json();
+
+      if (!res.ok || data.success === false) {
+        throw new Error(data.error || 'Failed to record quote in Google Sheet');
+      }
+
       setIsSubmitted(true);
-    } catch (err) {
+    } catch (err: any) {
       console.error('Quote submission error:', err);
-      setErrorMessage('Unable to send inquiry right now. Please call us directly at +91 81281 28791 or email ops@sevenrouteslogistics.com.');
+      setErrorMessage(
+        err.message ||
+        'Unable to send inquiry right now. Please call us directly at +91 81281 28791 or email ops@sevenrouteslogistics.com.'
+      );
     } finally {
       setIsSubmitting(false);
     }
@@ -170,6 +178,7 @@ export default function QuoteSection() {
                     <option value="Special Equipment Handling - OOG, Reefer">Special Equipment Handling - OOG, Reefer</option>
                     <option value="Clearance and Local Transportation">Clearance and Local Transportation</option>
                     <option value="Worldwide Agency Network">Worldwide Agency Network</option>
+                    <option value="Textile Machinery Imports">Textile Machinery Imports</option>
                   </select>
                 </div>
               </div>

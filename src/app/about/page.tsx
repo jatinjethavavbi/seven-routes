@@ -34,7 +34,7 @@ export default function AboutPage() {
     },
     {
       title: 'Specialised Chemical Export Expertise',
-      desc: 'Deep domain expertise in chemical logistics contributing 60% of business volume, with robust handling of hazardous and non-hazardous bulk.',
+      desc: 'Deep domain expertise in chemical logistics serving 70+ chemical exporters, with robust handling of hazardous and non-hazardous bulk.',
     },
     {
       title: 'Established Customer & Shipping Line Relationships',

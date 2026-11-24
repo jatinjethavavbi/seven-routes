@@ -14,7 +14,7 @@ export default function Logo({ variant = 'dark', className = '' }: LogoProps) {
     <Link href="/" className={`inline-block ${className}`}>
       <div className="relative h-14 w-56 sm:h-16 sm:w-64">
         <Image
-          src="/images/seven-routes-logo.png"
+          src="/images/website-logo.webp"
           alt="Seven Routes Logistics International Pvt Ltd"
           fill
           priority

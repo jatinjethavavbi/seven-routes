@@ -54,7 +54,7 @@ export default function Footer() {
             <Link href="/" className="inline-block bg-white px-3 py-1 rounded-md shadow-sm">
               <div className="relative h-9 w-36 sm:h-10 sm:w-40">
                 <Image
-                  src="/images/seven-routes-logo.png"
+                  src="/images/website-logo.webp"
                   alt="Seven Routes Logistics International Pvt. Ltd."
                   fill
                   sizes="160px"

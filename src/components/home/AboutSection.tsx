@@ -45,7 +45,7 @@ export default function AboutSection() {
                 Led by Directors <strong>Kanika</strong> (14+ years in logistics, prior roles with Nippon Express &amp; Globelink) and <strong>Neeraj</strong> (20+ years professional experience, 16+ years in logistics with DHL &amp; Maersk), our company brings approximately 30 professionals across <strong>Mumbai, Ahmedabad, and Surat</strong>, with most team members bringing more than 10 years of logistics industry experience.
               </p>
               <p>
-                We specialise in international freight forwarding, particularly <strong>chemicals and pharma exports</strong>, which represent our core business volumes (50% chemicals, 20% pharma, 20% FIBC &amp; non-woven bags). Building on cumulative turnover of over <strong>₹350 crore</strong> managed over the last three years under Pazago Logistics by the same core team, we offer proven operational discipline and reliable execution.
+                We specialise in international freight forwarding, particularly <strong>chemicals and pharma exports</strong>, serving <strong>70+ chemical exporters</strong> alongside our core sector mix (50% chemicals, 20% pharma, 20% FIBC &amp; non-woven bags). Building on cumulative turnover of over <strong>₹350 crore</strong> managed over the last three years under Pazago Logistics by the same core team, we offer proven operational discipline and reliable execution.
               </p>
             </div>
 
@@ -56,8 +56,8 @@ export default function AboutSection() {
                 <span className="block text-[11px] text-slate-500 mt-0.5">Turnover Managed</span>
               </div>
               <div className="bg-white p-3 rounded-lg border border-slate-200 text-center">
-                <span className="block text-xl sm:text-2xl font-extrabold text-theme-blue">60%</span>
-                <span className="block text-[11px] text-slate-500 mt-0.5">Chemical Exports</span>
+                <span className="block text-xl sm:text-2xl font-extrabold text-theme-blue">70+</span>
+                <span className="block text-[11px] text-slate-500 mt-0.5">Chemical Exporters</span>
               </div>
               <div className="bg-white p-3 rounded-lg border border-slate-200 text-center">
                 <span className="block text-xl sm:text-2xl font-extrabold text-theme-blue">30,000+</span>

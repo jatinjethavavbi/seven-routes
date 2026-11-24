@@ -61,6 +61,15 @@ export default function ServicesGrid() {
         'Extensive international partner offices across 100+ countries, offering seamless destination customs clearance, DAP/DDP deliveries, and global end-to-end visibility.',
       href: '/services#agency-network',
     },
+    {
+      id: 'textile-machinery-imports',
+      title: 'Textile Machinery Imports',
+      image: '/images/services/textile-machinery.jpg',
+      badge: 'China to India Corridor',
+      description:
+        'Specialised China-to-India import logistics for cutting-edge textile machinery, reducing costs by 15–25% with BIS certification, EPCG compliance, and factory delivery.',
+      href: '/services#textile-machinery-imports',
+    },
   ];
 
   return (

@@ -63,19 +63,27 @@ export default function ContactPage() {
         message: formData.message,
       };
 
-      await fetch(GOOGLE_SCRIPT_URL, {
+      const res = await fetch('/api/contact', {
         method: 'POST',
-        mode: 'no-cors',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(payload),
       });
 
+      const data = await res.json();
+
+      if (!res.ok || data.success === false) {
+        throw new Error(data.error || 'Failed to record inquiry in Google Sheet');
+      }
+
       setIsSubmitted(true);
-    } catch (err) {
+    } catch (err: any) {
       console.error('Contact form submission error:', err);
-      setErrorMessage('Unable to send inquiry right now. Please call us directly at +91 81281 28791 or email ops@sevenrouteslogistics.com.');
+      setErrorMessage(
+        err.message ||
+        'Unable to send inquiry to Google Sheet right now. Please call us directly at +91 81281 28791 or email ops@sevenrouteslogistics.com.'
+      );
     } finally {
       setIsSubmitting(false);
     }
@@ -131,7 +139,7 @@ export default function ContactPage() {
     },
     {
       q: 'What types of chemical exports do you specialize in?',
-      a: 'Chemical exports contribute approximately 60% of our business volume. We handle both hazardous (IMDG Classes 3, 6, 8, 9) and non-hazardous chemicals in dry containers, reefer boxes, and certified ISO tanks.',
+      a: 'We proudly partner with 70+ chemical exporters across India. We handle both hazardous (IMDG Classes 2, 3, 4, 5, 6, 8, 9) and non-hazardous chemicals in dry containers, reefer boxes, and certified ISO tanks.',
     },
     {
       q: 'What statutory licenses does Seven Routes hold?',
@@ -382,6 +390,7 @@ export default function ContactPage() {
                           <option value="Special Equipment Handling - OOG, Reefer">Special Equipment Handling - OOG, Reefer</option>
                           <option value="Clearance and Local Transportation">Clearance and Local Transportation</option>
                           <option value="Worldwide Agency Network">Worldwide Agency Network</option>
+                          <option value="Textile Machinery Imports">Textile Machinery Imports</option>
                         </select>
                       </div>
 
