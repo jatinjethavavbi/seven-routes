@@ -1,30 +1,42 @@
 /**
  * ==============================================================================
  * SEVEN ROUTES LOGISTICS INTERNATIONAL PVT. LTD.
- * GOOGLE APPS SCRIPT WEB APP - LEAD & CONTACT INQUIRY RECEIVER
+ * GOOGLE APPS SCRIPT WEB APP - CONTACT & QUOTE INQUIRY RECEIVER
  * ==============================================================================
  */
 
-// Your Google Sheet & Google Drive Folder IDs
+// Owner's Google Sheet ID
 const SPREADSHEET_ID = '1k2o8ks4I1n0v-tAYcbcqvNXgncOApuitVDFA3Msqtb8';
-const FOLDER_ID = '1tchmx0no3p39W7RTaL3d0eM9n66UkRju';
 
-const MAX_FILE_SIZE_BYTES = 5 * 1024 * 1024; // 5 MB
-const ALLOWED_MIME_TYPES = ['image/png', 'image/jpeg', 'image/jpg', 'image/webp', 'application/pdf'];
+const HEADERS = [
+  'Time',
+  'Name / Company',
+  'Email Address',
+  'Phone / Mobile Number',
+  'Service Required',
+  'Route (Origin & Destination)',
+  'Shipment Details'
+];
 
 /**
- * Handle HTTP POST from website forms (QuoteSection & Contact page)
+ * Handle HTTP POST from website forms (Contact page & QuoteSection)
  */
 function doPost(e) {
   const lock = LockService.getScriptLock();
   lock.tryLock(30000); // 30 second concurrency lock
 
   try {
-    if (!e || !e.postData || !e.postData.contents) {
+    let data = null;
+    if (e && e.postData && e.postData.contents) {
+      data = JSON.parse(e.postData.contents);
+    } else if (e && e.parameter && Object.keys(e.parameter).length > 0) {
+      data = e.parameter;
+    }
+
+    if (!data) {
       return createJsonResponse({ success: false, error: 'Empty payload received' });
     }
 
-    const data = JSON.parse(e.postData.contents);
     const result = processSubmission(data);
     return createJsonResponse(result);
   } catch (error) {
@@ -42,94 +54,63 @@ function doPost(e) {
  * Process and append form data to the Google Sheet
  */
 function processSubmission(data) {
-  // Extract all fields sent by Seven Routes website forms
-  const source = (data.source || 'Website Contact Form').toString().trim();
-  const name = (data.name || '').toString().trim();
-  const phone = (data.phone || '').toString().trim();
-  const email = (data.email || '').toString().trim().toLowerCase();
-  const company = (data.company || '').toString().trim();
-  const service = (data.service || data.subject || '').toString().trim();
-  const route = (data.route || '').toString().trim();
-  const branchPreference = (data.branchPreference || '').toString().trim();
-  const message = (data.message || '').toString().trim();
+  const rawName = (data.name || data.fullName || '').toString().trim();
+  const rawCompany = (data.company || data.companyName || '').toString().trim();
+  const nameAndCompany = rawName && rawCompany ? `${rawName} / ${rawCompany}` : (rawName || rawCompany);
 
-  // File / Image Attachment (optional)
-  const fileBase64 = data.image || data.file || null;
-  const fileName = (data.fileName || 'document.png').toString().trim();
-  const mimeType = (data.mimeType || 'image/png').toString().toLowerCase();
+  const email = (data.email || data.emailAddress || '').toString().trim().toLowerCase();
+  const phone = (data.phone || data.mobile || data.phoneNumber || '').toString().trim();
+  const service = (data.service || data.subject || data.serviceRequired || '').toString().trim();
 
-  // Basic validation: must have at least phone OR email or name
-  if (!name && !phone && !email) {
+  const origin = (data.origin || '').toString().trim();
+  const destination = (data.destination || '').toString().trim();
+  const rawRoute = (data.route || '').toString().trim();
+  const rawBranch = (data.branchPreference || '').toString().trim();
+  const route =
+    (rawRoute && !rawRoute.startsWith('General Route /') ? rawRoute : '') ||
+    (origin && destination ? `${origin} → ${destination}` : (origin || destination)) ||
+    rawBranch;
+
+  const message = (data.message || data.details || data.shipmentDetails || '').toString().trim();
+
+  // Basic validation: must have at least name, phone, or email
+  if (!nameAndCompany && !phone && !email) {
     return { success: false, error: 'Please provide at least a name, phone number, or email.' };
-  }
-
-  let fileUrl = '';
-  let imageFormula = '';
-
-  // Process file upload to Google Drive folder if attached
-  if (fileBase64) {
-    try {
-      if (!ALLOWED_MIME_TYPES.includes(mimeType)) {
-        return { success: false, error: 'Invalid file format. Allowed: PNG, JPG, WEBP, PDF.' };
-      }
-
-      const decodedBytes = Utilities.base64Decode(fileBase64);
-      if (decodedBytes.length > MAX_FILE_SIZE_BYTES) {
-        return { success: false, error: 'File size exceeds 5 MB.' };
-      }
-
-      let folder = null;
-      try {
-        folder = DriveApp.getFolderById(FOLDER_ID);
-      } catch (e) {
-        folder = null;
-      }
-
-      if (!folder) {
-        const folderIter = DriveApp.getFoldersByName('Seven Routes Inquiry Uploads');
-        folder = folderIter.hasNext() ? folderIter.next() : DriveApp.createFolder('Seven Routes Inquiry Uploads');
-      }
-
-      const blob = Utilities.newBlob(decodedBytes, mimeType, fileName);
-      const file = folder.createFile(blob);
-      file.setSharing(DriveApp.Access.ANYONE_WITH_LINK, DriveApp.Permission.VIEW);
-
-      fileUrl = file.getUrl();
-      const fileId = file.getId();
-
-      if (mimeType.startsWith('image/')) {
-        imageFormula = `=IMAGE("https://drive.google.com/uc?export=view&id=${fileId}", 4, 70, 70)`;
-      }
-    } catch (err) {
-      Logger.log('Drive upload failed: ' + err.toString());
-    }
   }
 
   const sheet = getTargetSheet();
   const timestamp = Utilities.formatDate(new Date(), 'Asia/Kolkata', 'yyyy-MM-dd HH:mm:ss');
 
-  // Ensure headers exist
+  // Ensure row 1 headers match HEADERS without deleting existing data rows
   setupHeadersIfNeeded(sheet);
 
-  // Append row matching columns
-  sheet.appendRow([
-    timestamp,
-    source,
-    name,
-    phone,
-    email,
-    company,
-    service,
-    route,
-    branchPreference,
-    message,
-    fileUrl,
-    imageFormula
-  ]);
+  const rowValuesByHeader = {
+    'Time': timestamp,
+    'Name / Company': nameAndCompany,
+    'Email Address': email,
+    'Phone / Mobile Number': phone,
+    'Service Required': service,
+    'Route (Origin & Destination)': route,
+    'Shipment Details': message
+  };
 
-  if (imageFormula) {
-    sheet.setRowHeight(sheet.getLastRow(), 75);
+  const row = HEADERS.map(function (header) {
+    return rowValuesByHeader[header] !== undefined ? rowValuesByHeader[header] : '';
+  });
+
+  const nextRow = sheet.getLastRow() + 1;
+  const timeCol = HEADERS.indexOf('Time') + 1;
+  const phoneCol = HEADERS.indexOf('Phone / Mobile Number') + 1;
+
+  // Format Time (col A) and Phone (col D) as plain text before writing
+  if (timeCol > 0) {
+    sheet.getRange(nextRow, timeCol).setNumberFormat('@');
   }
+  if (phoneCol > 0) {
+    sheet.getRange(nextRow, phoneCol).setNumberFormat('@');
+  }
+
+  sheet.getRange(nextRow, 1, 1, HEADERS.length).setValues([row]);
 
   return {
     success: true,
@@ -138,7 +119,7 @@ function processSubmission(data) {
 }
 
 /**
- * Access the target spreadsheet
+ * Access the target spreadsheet (first/active tab)
  */
 function getTargetSheet() {
   let ss = null;
@@ -161,58 +142,46 @@ function getTargetSheet() {
 }
 
 /**
- * Setup professional styled headers in Google Sheets
+ * Setup plain bold headers in Row 1 of Google Sheets
  */
-function setupHeaders() {
-  const sheet = getTargetSheet();
-  const headers = [
-    'Timestamp (IST)',
-    'Inquiry Source',
-    'Contact Name',
-    'Phone / Mobile',
-    'Email Address',
-    'Company Name',
-    'Cargo Service Required',
-    'Origin & Destination Route',
-    'Preferred Office Desk',
-    'Message / Cargo Details',
-    'Attachment Link',
-    'Image Preview'
-  ];
+function setupHeaders(targetSheet) {
+  const sheet = targetSheet || getTargetSheet();
 
   if (sheet.getLastRow() === 0) {
-    sheet.appendRow(headers);
+    sheet.appendRow(HEADERS);
   } else {
-    sheet.getRange(1, 1, 1, headers.length).setValues([headers]);
+    const firstCell = (sheet.getRange(1, 1).getValue() || '').toString().trim();
+    if (firstCell && firstCell !== 'Time' && firstCell !== 'Timestamp (IST)' && firstCell !== 'Name / Company') {
+      sheet.insertRowBefore(1);
+    }
+    if (sheet.getLastColumn() > HEADERS.length) {
+      sheet.getRange(1, HEADERS.length + 1, 1, sheet.getLastColumn() - HEADERS.length).clearContent();
+    }
+    sheet.getRange(1, 1, 1, HEADERS.length).setValues([HEADERS]);
   }
 
-  // Formatting header row
-  const headerRange = sheet.getRange(1, 1, 1, headers.length);
+  const headerRange = sheet.getRange(1, 1, 1, HEADERS.length);
   headerRange.setFontWeight('bold');
-  headerRange.setBackground('#112347'); // Seven Routes Deep Navy
-  headerRange.setFontColor('#FFFFFF');
+  headerRange.setBackground(null);
+  headerRange.setFontColor(null);
   sheet.setFrozenRows(1);
-
-  // Set optimal column widths
-  sheet.setColumnWidth(1, 160); // Timestamp
-  sheet.setColumnWidth(2, 170); // Source
-  sheet.setColumnWidth(3, 160); // Name
-  sheet.setColumnWidth(4, 150); // Phone
-  sheet.setColumnWidth(5, 210); // Email
-  sheet.setColumnWidth(6, 180); // Company
-  sheet.setColumnWidth(7, 230); // Service
-  sheet.setColumnWidth(8, 200); // Route
-  sheet.setColumnWidth(9, 180); // Office Desk
-  sheet.setColumnWidth(10, 260); // Message
-  sheet.setColumnWidth(11, 200); // File URL
-  sheet.setColumnWidth(12, 90);  // Image Preview
 
   Logger.log('Seven Routes Google Sheet headers setup completed.');
 }
 
 function setupHeadersIfNeeded(sheet) {
   if (sheet.getLastRow() === 0) {
-    setupHeaders();
+    setupHeaders(sheet);
+    return;
+  }
+
+  const currentHeaders = sheet.getRange(1, 1, 1, HEADERS.length).getValues()[0];
+  const headersMatch = HEADERS.every(function (header, idx) {
+    return currentHeaders[idx] === header;
+  });
+
+  if (!headersMatch || sheet.getLastColumn() > HEADERS.length) {
+    setupHeaders(sheet);
   }
 }
 
@@ -221,8 +190,7 @@ function setupHeadersIfNeeded(sheet) {
  */
 function doGet(e) {
   return createJsonResponse({
-    status: 'online',
-    company: 'Seven Routes Logistics International Pvt. Ltd.',
+    status: 'ok',
     spreadsheetConnected: Boolean(SPREADSHEET_ID)
   });
 }
@@ -233,20 +201,17 @@ function createJsonResponse(data) {
 }
 
 /**
- * Test function to verify sheet connection
+ * Test function matching the website form payload
  */
 function testSubmit() {
   Logger.log('Running test lead submission...');
   const result = processSubmission({
-    source: 'Test Script',
-    name: 'Priyank Vasoya',
-    phone: '+91 81281 28791',
-    email: 'ops@sevenrouteslogistics.com',
-    company: 'Seven Routes Logistics',
-    service: 'Chemical & Pharma Cargo Handling',
-    route: 'Nhava Sheva to Antwerp',
-    branchPreference: 'Mumbai HQ',
-    message: 'Testing Google Sheet integration from Apps Script editor'
+    name: 'jatin jethava',
+    email: 'jatinjethavavbi@gmail.com',
+    phone: '8160082638',
+    service: 'International Freight Forwarding',
+    route: 'mumbai',
+    message: 'dacsad'
   });
   Logger.log('Result: ' + JSON.stringify(result));
 }

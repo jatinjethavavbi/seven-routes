@@ -3,10 +3,6 @@
 import React, { useState } from 'react';
 import { Send, CheckCircle2, Phone, Mail, Loader2, ShieldCheck } from 'lucide-react';
 
-const GOOGLE_SCRIPT_URL =
-  process.env.NEXT_PUBLIC_GOOGLE_SCRIPT_URL ||
-  'https://script.google.com/macros/s/AKfycbyRNx0_mk-8Y5fwANy70K5gVWri-2F7Vi0Ey1SLkxa7YDWHBOVbKG1SJA8SSRIG/exec';
-
 export default function QuoteSection() {
   const [formData, setFormData] = useState({
     name: '',

@@ -21,15 +21,10 @@ import {
   Loader2
 } from 'lucide-react';
 
-const GOOGLE_SCRIPT_URL =
-  process.env.NEXT_PUBLIC_GOOGLE_SCRIPT_URL ||
-  'https://script.google.com/macros/s/AKfycbyRNx0_mk-8Y5fwANy70K5gVWri-2F7Vi0Ey1SLkxa7YDWHBOVbKG1SJA8SSRIG/exec';
-
 export default function ContactPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [formData, setFormData] = useState({
     name: '',
-    company: '',
     email: '',
     phone: '',
     subject: 'International Freight Forwarding',
@@ -50,7 +45,6 @@ export default function ContactPage() {
       const payload = {
         source: 'Contact Page Inquiry',
         name: formData.name,
-        company: formData.company,
         email: formData.email,
         phone: formData.phone,
         contact: formData.phone + (formData.email ? ' / ' + formData.email : ''),
@@ -319,30 +313,16 @@ export default function ContactPage() {
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-4">
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      <div>
+                      <div className="sm:col-span-2">
                         <label className="block text-xs font-medium text-slate-700 mb-1">
-                          Full Name *
+                          Your Name / Company *
                         </label>
                         <input
                           type="text"
                           required
-                          placeholder="e.g. Rahul Sharma"
+                          placeholder="e.g. Acme Corp / Rahul Sharma"
                           value={formData.name}
                           onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                          className="w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-2.5 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-theme-orange focus:bg-white"
-                        />
-                      </div>
-
-                      <div>
-                        <label className="block text-xs font-medium text-slate-700 mb-1">
-                          Company / Organization *
-                        </label>
-                        <input
-                          type="text"
-                          required
-                          placeholder="e.g. Chemical Exports Pvt Ltd"
-                          value={formData.company}
-                          onChange={(e) => setFormData({ ...formData, company: e.target.value })}
                           className="w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-2.5 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-theme-orange focus:bg-white"
                         />
                       </div>
