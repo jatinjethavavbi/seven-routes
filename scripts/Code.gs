@@ -1,12 +1,6 @@
-/**
- * ==============================================================================
- * SEVEN ROUTES LOGISTICS INTERNATIONAL PVT. LTD.
- * GOOGLE APPS SCRIPT WEB APP - CONTACT & QUOTE INQUIRY RECEIVER
- * ==============================================================================
- */
 
 // Owner's Google Sheet ID
-const SPREADSHEET_ID = '1k2o8ks4I1n0v-tAYcbcqvNXgncOApuitVDFA3Msqtb8';
+const SPREADSHEET_ID = '1elu8QlY3MemMebtloT-ymY7llr7ISX7LTqYdJV93OI-fmQB2Lp2cDwHK';
 
 const HEADERS = [
     'Time',
