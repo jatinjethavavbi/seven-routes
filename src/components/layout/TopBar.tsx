@@ -9,7 +9,7 @@ export default function TopBar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-9 font-normal">
           {/* Left: Contact Info */}
-          <div className="flex items-center space-x-6 text-slate-200">
+          <div className="flex items-center space-x-4 xl:space-x-5 text-slate-200">
             <a
               href="tel:+918128128791"
               className="flex items-center space-x-1.5 hover:text-theme-orange transition-colors"
@@ -19,11 +19,11 @@ export default function TopBar() {
             </a>
             <span className="text-white/20">•</span>
             <a
-              href="mailto:ops@sevenrouteslogistics.com"
+              href="mailto:kanika@sevenrouteslogistics.com"
               className="flex items-center space-x-1.5 hover:text-theme-orange transition-colors"
             >
               <Mail className="w-3.5 h-3.5 text-theme-orange" />
-              <span>ops@sevenrouteslogistics.com</span>
+              <span>kanika@sevenrouteslogistics.com</span>
             </a>
             <span className="text-white/20">•</span>
             <a

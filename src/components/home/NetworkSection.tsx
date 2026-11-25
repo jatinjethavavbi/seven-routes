@@ -40,7 +40,7 @@ export default function NetworkSection() {
       tag: 'Mumbai Regional Office',
       city: 'Mumbai (Mulund)',
       state: 'Maharashtra',
-      address: '1006, The Gateway by Wadhwa, Mulund - Goregaon Link Rd, opp. Registration Office Mulund West, Hira Nagar, Mulund West, Mumbai, Maharashtra 400080',
+      address: '1006, Wadhwa Gateway, Nahur West, Mulund - Goregaon Link Road, Mumbai 400080',
       phone: '+91 81281 28791',
       email: 'ops@sevenrouteslogistics.com',
       gatewayPort: 'Nhava Sheva & Mumbai Maritime Terminals',
@@ -75,7 +75,7 @@ export default function NetworkSection() {
       city: 'Ahmedabad',
       state: 'Gujarat',
       address: 'Office no.: 1120, 11th Floor, Sakar-9, Beside old Reserve Bank of India, Ashram Rd, near City Gold, Muslim Society, Navrangpura, Ahmedabad, Gujarat 380009',
-      phone: '+91 73777 09341',
+      phone: '+91 75060 93775',
       email: 'ajay.b@sevenrouteslogistics.com',
       gatewayPort: 'Mundra Port & Inland ICD Sanand / Khodiyar / Sabarmati',
       operations: [

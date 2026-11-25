@@ -96,7 +96,7 @@ export default function ContactPage() {
       port: 'Nhava Sheva (JNPT) & Mumbai Port Gateway',
       address: '1501, BLA Business Park, CTS No. 492 A 1 to 4 and 492 B, near Atlanta Center, Goregaon (E), Sonawala Road, Village Pahadi, Mumbai 400063',
       phones: ['+91 81281 28791'],
-      emails: ['ops@sevenrouteslogistics.com', 'neeraj@sevenrouteslogistics.com'],
+      emails: ['ops@sevenrouteslogistics.com', 'kanika@sevenrouteslogistics.com', 'neeraj@sevenrouteslogistics.com'],
       hours: 'Mon - Sat: 9:30 AM - 6:30 PM (IST)',
       chaStatus: 'Corporate Leadership & Central Pricing Desk',
     },
@@ -104,9 +104,9 @@ export default function ContactPage() {
       city: 'Mumbai (Mulund)',
       badge: 'Mumbai Regional Office',
       port: 'Nhava Sheva & Regional Maritime Logistics',
-      address: '1006, The Gateway by Wadhwa, Mulund - Goregaon Link Rd, opp. Registration Office Mulund West, Hira Nagar, Mulund West, Mumbai, Maharashtra 400080',
+      address: '1006, Wadhwa Gateway, Nahur West, Mulund - Goregaon Link Road, Mumbai 400080',
       phones: ['+91 81281 28791'],
-      emails: ['ops@sevenrouteslogistics.com'],
+      emails: ['ops@sevenrouteslogistics.com', 'kanika@sevenrouteslogistics.com'],
       hours: 'Mon - Sat: 9:30 AM - 6:30 PM (IST)',
       chaStatus: 'Regional Ocean Freight & Carrier Operations',
     },
@@ -125,7 +125,7 @@ export default function ContactPage() {
       badge: 'Commercial & ICD Hub',
       port: 'Mundra Port Linkages & Inland ICD Sanand / Khodiyar',
       address: 'Office no.: 1120, 11th Floor, Sakar-9, Beside old Reserve Bank of India, Ashram Rd, near City Gold, Muslim Society, Navrangpura, Ahmedabad, Gujarat 380009',
-      phones: ['+91 73777 09341'],
+      phones: ['+91 75060 93775'],
       emails: ['ajay.b@sevenrouteslogistics.com'],
       hours: 'Mon - Sat: 9:30 AM - 6:30 PM (IST)',
       chaStatus: 'Commercial Freight & Inland Container Logistics',
@@ -483,7 +483,11 @@ export default function ContactPage() {
                     </div>
                     <div className="flex items-center space-x-2">
                       <Mail className="w-3.5 h-3.5 text-theme-orange shrink-0" />
-                      <span><strong>Director:</strong> neeraj@sevenrouteslogistics.com</span>
+                      <span><strong>Director (Kanika):</strong> kanika@sevenrouteslogistics.com</span>
+                    </div>
+                    <div className="flex items-center space-x-2">
+                      <Mail className="w-3.5 h-3.5 text-theme-orange shrink-0" />
+                      <span><strong>Director (Neeraj):</strong> neeraj@sevenrouteslogistics.com</span>
                     </div>
                     <div className="flex items-center space-x-2">
                       <Clock className="w-3.5 h-3.5 text-theme-orange shrink-0" />

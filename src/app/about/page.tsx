@@ -23,7 +23,8 @@ import {
   Ship,
   FileCheck2,
   Boxes,
-  Percent
+  Percent,
+  Mail
 } from 'lucide-react';
 
 export default function AboutPage() {
@@ -292,6 +293,13 @@ export default function AboutPage() {
                       <h3 className="text-2xl font-bold text-theme-blue">Kanika</h3>
                       <p className="text-sm font-semibold text-theme-orange">Director &amp; Promoter</p>
                       <p className="text-xs text-slate-500">Seven Routes Logistics International Pvt. Ltd.</p>
+                      <a
+                        href="mailto:kanika@sevenrouteslogistics.com"
+                        className="inline-flex items-center space-x-1.5 text-xs font-semibold text-theme-blue hover:text-theme-orange transition-colors pt-0.5"
+                      >
+                        <Mail className="w-3.5 h-3.5 text-theme-orange" />
+                        <span>kanika@sevenrouteslogistics.com</span>
+                      </a>
                     </div>
 
                     <div className="w-full space-y-2 pt-2 border-t border-slate-200">
@@ -385,6 +393,13 @@ export default function AboutPage() {
                       <h3 className="text-2xl font-bold text-theme-blue">Neeraj</h3>
                       <p className="text-sm font-semibold text-theme-orange">Director &amp; Promoter</p>
                       <p className="text-xs text-slate-500">Seven Routes Logistics International Pvt. Ltd.</p>
+                      <a
+                        href="mailto:neeraj@sevenrouteslogistics.com"
+                        className="inline-flex items-center space-x-1.5 text-xs font-semibold text-theme-blue hover:text-theme-orange transition-colors pt-0.5"
+                      >
+                        <Mail className="w-3.5 h-3.5 text-theme-orange" />
+                        <span>neeraj@sevenrouteslogistics.com</span>
+                      </a>
                     </div>
 
                     <div className="w-full space-y-2 pt-2 border-t border-slate-200">

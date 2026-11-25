@@ -94,23 +94,23 @@ export default function StatsBar() {
           >
             <div
               className="h-full bg-gradient-to-r from-[#F05A28] to-[#FF7745] rounded-l-full transition-all duration-300 hover:brightness-110"
-              style={{ width: '50%' }}
-              title="Chemicals: 50%"
+              style={{ width: '40%' }}
+              title="Chemicals: 40%"
             />
             <div
               className="h-full bg-gradient-to-r from-[#0284C7] to-[#38BDF8] rounded-sm transition-all duration-300 hover:brightness-110"
-              style={{ width: '20%' }}
-              title="Pharma: 20%"
+              style={{ width: '25%' }}
+              title="Pharma: 25%"
             />
             <div
               className="h-full bg-gradient-to-r from-[#7C3AED] to-[#A78BFA] rounded-sm transition-all duration-300 hover:brightness-110"
-              style={{ width: '20%' }}
-              title="FIBC & Non-Woven Bags: 20%"
+              style={{ width: '10%' }}
+              title="FIBC & Non-Woven Bags: 10%"
             />
             <div
               className="h-full bg-gradient-to-r from-[#475569] to-[#94A3B8] rounded-r-full transition-all duration-300 hover:brightness-110"
-              style={{ width: '10%' }}
-              title="Others: 10%"
+              style={{ width: '25%' }}
+              title="Others: 25%"
             />
           </div>
 
@@ -123,7 +123,7 @@ export default function StatsBar() {
               </div>
               <div className="min-w-0">
                 <div className="flex items-baseline gap-1">
-                  <span className="text-base sm:text-lg font-black text-white leading-none">50%</span>
+                  <span className="text-base sm:text-lg font-black text-white leading-none">40%</span>
                 </div>
                 <div className="text-[11px] sm:text-xs font-semibold text-slate-300 truncate">Chemicals</div>
               </div>
@@ -136,7 +136,7 @@ export default function StatsBar() {
               </div>
               <div className="min-w-0">
                 <div className="flex items-baseline gap-1">
-                  <span className="text-base sm:text-lg font-black text-white leading-none">20%</span>
+                  <span className="text-base sm:text-lg font-black text-white leading-none">25%</span>
                 </div>
                 <div className="text-[11px] sm:text-xs font-semibold text-slate-300 truncate">Pharma</div>
               </div>
@@ -149,7 +149,7 @@ export default function StatsBar() {
               </div>
               <div className="min-w-0">
                 <div className="flex items-baseline gap-1">
-                  <span className="text-base sm:text-lg font-black text-white leading-none">20%</span>
+                  <span className="text-base sm:text-lg font-black text-white leading-none">10%</span>
                 </div>
                 <div className="text-[11px] sm:text-xs font-semibold text-slate-300 truncate">FIBC &amp; Bags</div>
               </div>
@@ -162,7 +162,7 @@ export default function StatsBar() {
               </div>
               <div className="min-w-0">
                 <div className="flex items-baseline gap-1">
-                  <span className="text-base sm:text-lg font-black text-white leading-none">10%</span>
+                  <span className="text-base sm:text-lg font-black text-white leading-none">25%</span>
                 </div>
                 <div className="text-[11px] sm:text-xs font-semibold text-slate-300 truncate">Others</div>
               </div>
