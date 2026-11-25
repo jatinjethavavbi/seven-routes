@@ -1,9 +1,16 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import Link from 'next/link';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
+import {
+  ContactFieldErrors,
+  ContactFieldName,
+  validateContactInquiry,
+  validateEmail,
+  validatePhone,
+} from '../../lib/contactValidation';
 import {
   MapPin,
   Phone,
@@ -18,7 +25,8 @@ import {
   HelpCircle,
   PhoneCall,
   ChevronDown,
-  Loader2
+  Loader2,
+  AlertCircle
 } from 'lucide-react';
 
 export default function ContactPage() {
@@ -30,31 +38,116 @@ export default function ContactPage() {
     subject: 'International Freight Forwarding',
     branchPreference: 'Corporate Office (Goregaon, Mumbai)',
     message: '',
+    website: '',
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
+  const [fieldErrors, setFieldErrors] = useState<ContactFieldErrors>({});
+  const [touchedFields, setTouchedFields] = useState<Partial<Record<ContactFieldName, boolean>>>({});
+  const [emailHint, setEmailHint] = useState<string | undefined>(undefined);
+
+  const nameRef = useRef<HTMLInputElement>(null);
+  const emailRef = useRef<HTMLInputElement>(null);
+  const phoneRef = useRef<HTMLInputElement>(null);
+  const messageRef = useRef<HTMLTextAreaElement>(null);
+
+  const FRIENDLY_SUBMIT_ERROR =
+    'We could not send your inquiry. Please call +91 81281 28791 or email ops@sevenrouteslogistics.com';
+
+  const runValidation = (
+    nextData: typeof formData,
+    fieldsToUpdate?: ContactFieldName[]
+  ) => {
+    const result = validateContactInquiry(nextData, {
+      requireMessage: true,
+      validateBranch: true,
+    });
+
+    if (fieldsToUpdate) {
+      setFieldErrors((prev) => {
+        const updated = { ...prev };
+        for (const f of fieldsToUpdate) {
+          if (result.errors[f]) {
+            updated[f] = result.errors[f];
+          } else {
+            delete updated[f];
+          }
+        }
+        return updated;
+      });
+    } else {
+      setFieldErrors(result.errors);
+    }
+
+    if (!fieldsToUpdate || fieldsToUpdate.includes('email')) {
+      setEmailHint(result.hints.email);
+    }
+
+    return result;
+  };
+
+  const handleFieldChange = (field: ContactFieldName, value: string) => {
+    const nextData = { ...formData, [field]: value };
+    setFormData(nextData);
+    if (touchedFields[field]) {
+      runValidation(nextData, [field]);
+    } else if (field === 'email') {
+      const check = validateEmail(value);
+      setEmailHint(check.hint);
+    }
+  };
+
+  const handleFieldBlur = (field: ContactFieldName) => {
+    setTouchedFields((prev) => ({ ...prev, [field]: true }));
+    let nextData = formData;
+    if (field === 'phone') {
+      const phoneCheck = validatePhone(formData.phone);
+      if (phoneCheck.valid && phoneCheck.normalized !== formData.phone) {
+        nextData = { ...formData, phone: phoneCheck.normalized };
+        setFormData(nextData);
+      }
+    }
+    runValidation(nextData, [field]);
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
     setErrorMessage('');
 
+    const validation = validateContactInquiry(formData, {
+      requireMessage: true,
+      validateBranch: true,
+    });
+    if (!validation.valid) {
+      const fieldOrder: ContactFieldName[] = ['name', 'email', 'phone', 'subject', 'branchPreference', 'message'];
+      const firstInvalidField = fieldOrder.find((f) => Boolean(validation.errors[f]));
+      if (firstInvalidField) {
+        setFieldErrors({ [firstInvalidField]: validation.errors[firstInvalidField] });
+        setTouchedFields((prev) => ({ ...prev, [firstInvalidField]: true }));
+        if (firstInvalidField === 'name') nameRef.current?.focus();
+        else if (firstInvalidField === 'email') emailRef.current?.focus();
+        else if (firstInvalidField === 'phone') phoneRef.current?.focus();
+        else if (firstInvalidField === 'message') messageRef.current?.focus();
+      }
+      return;
+    }
+
+    setIsSubmitting(true);
+
     try {
+      const normalized = validation.values;
       const payload = {
         source: 'Contact Page Inquiry',
-        name: formData.name,
-        email: formData.email,
-        phone: formData.phone,
-        contact: formData.phone + (formData.email ? ' / ' + formData.email : ''),
-        route: 'General Route / ' + formData.branchPreference,
-        service: formData.subject,
-        subject: formData.subject,
-        branchPreference: formData.branchPreference,
-        assignedTo: 'divyesh.t@sevenrouteslogistics.com',
-        notifyEmail: 'divyesh.t@sevenrouteslogistics.com',
-        message: formData.message,
+        name: normalized.name,
+        email: normalized.email,
+        phone: normalized.phone,
+        service: normalized.service,
+        subject: normalized.service,
+        branchPreference: normalized.branchPreference,
+        message: normalized.message,
+        website: formData.website,
       };
 
       const res = await fetch('/api/contact', {
@@ -68,16 +161,23 @@ export default function ContactPage() {
       const data = await res.json();
 
       if (!res.ok || data.success === false) {
-        throw new Error(data.error || 'Failed to record inquiry in Google Sheet');
+        if (data.errors) {
+          setFieldErrors(data.errors);
+        }
+        throw new Error(data.error || FRIENDLY_SUBMIT_ERROR);
       }
 
+      setFormData((prev) => ({
+        ...prev,
+        name: normalized.name,
+        email: normalized.email,
+        phone: normalized.phone,
+        message: normalized.message,
+      }));
       setIsSubmitted(true);
     } catch (err: any) {
       console.error('Contact form submission error:', err);
-      setErrorMessage(
-        err.message ||
-        'Unable to send inquiry to Google Sheet right now. Please call us directly at +91 81281 28791 or email ops@sevenrouteslogistics.com.'
-      );
+      setErrorMessage(FRIENDLY_SUBMIT_ERROR);
     } finally {
       setIsSubmitting(false);
     }
@@ -304,65 +404,143 @@ export default function ContactPage() {
                     </p>
                     <button
                       type="button"
-                      onClick={() => setIsSubmitted(false)}
+                      onClick={() => {
+                        setIsSubmitted(false);
+                        setErrorMessage('');
+                        setFieldErrors({});
+                        setTouchedFields({});
+                        setEmailHint(undefined);
+                        setFormData({
+                          name: '',
+                          email: '',
+                          phone: '',
+                          subject: 'International Freight Forwarding',
+                          branchPreference: 'Corporate Office (Goregaon, Mumbai)',
+                          message: '',
+                          website: '',
+                        });
+                      }}
                       className="text-xs text-theme-orange font-bold uppercase tracking-wider hover:underline pt-2 block mx-auto"
                     >
                       Send Another Message
                     </button>
                   </div>
                 ) : (
-                  <form onSubmit={handleSubmit} className="space-y-4">
+                  <form noValidate onSubmit={handleSubmit} className="space-y-4">
+                    <div className="hidden" aria-hidden="true">
+                      <label htmlFor="contact-website">Website</label>
+                      <input
+                        id="contact-website"
+                        type="text"
+                        name="website"
+                        tabIndex={-1}
+                        autoComplete="off"
+                        value={formData.website}
+                        onChange={(e) => setFormData({ ...formData, website: e.target.value })}
+                      />
+                    </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div className="sm:col-span-2">
-                        <label className="block text-xs font-medium text-slate-700 mb-1">
+                        <label htmlFor="contact-name" className="block text-xs font-medium text-slate-700 mb-1">
                           Your Name / Company *
                         </label>
                         <input
+                          id="contact-name"
+                          ref={nameRef}
                           type="text"
                           required
+                          autoComplete="name"
+                          maxLength={100}
                           placeholder="e.g. Acme Corp / Rahul Sharma"
                           value={formData.name}
-                          onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                          className="w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-2.5 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-theme-orange focus:bg-white"
+                          onChange={(e) => handleFieldChange('name', e.target.value)}
+                          onBlur={() => handleFieldBlur('name')}
+                          aria-invalid={Boolean(fieldErrors.name)}
+                          aria-describedby={fieldErrors.name ? 'contact-name-error' : undefined}
+                          className={`w-full bg-slate-50 border ${fieldErrors.name ? 'border-red-400 bg-red-50/30 ring-1 ring-red-200' : 'border-slate-300'} rounded-lg px-3 py-2.5 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-theme-orange focus:bg-white`}
                         />
+                        {fieldErrors.name && (
+                          <p id="contact-name-error" role="alert" className="flex items-start gap-1.5 text-[11px] font-medium text-red-600 mt-1.5 leading-snug">
+                            <AlertCircle className="w-3.5 h-3.5 shrink-0 mt-0.5" />
+                            <span>{fieldErrors.name}</span>
+                          </p>
+                        )}
                       </div>
 
                       <div>
-                        <label className="block text-xs font-medium text-slate-700 mb-1">
+                        <label htmlFor="contact-email" className="block text-xs font-medium text-slate-700 mb-1">
                           Email Address *
                         </label>
                         <input
+                          id="contact-email"
+                          ref={emailRef}
                           type="email"
+                          inputMode="email"
+                          autoComplete="email"
+                          autoCapitalize="none"
+                          spellCheck={false}
+                          maxLength={254}
                           required
                           placeholder="e.g. contact@yourcompany.com"
                           value={formData.email}
-                          onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                          className="w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-2.5 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-theme-orange focus:bg-white"
+                          onChange={(e) => handleFieldChange('email', e.target.value)}
+                          onBlur={() => handleFieldBlur('email')}
+                          aria-invalid={Boolean(fieldErrors.email)}
+                          aria-describedby={fieldErrors.email ? 'contact-email-error' : emailHint ? 'contact-email-hint' : undefined}
+                          className={`w-full bg-slate-50 border ${fieldErrors.email ? 'border-red-400 bg-red-50/30 ring-1 ring-red-200' : 'border-slate-300'} rounded-lg px-3 py-2.5 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-theme-orange focus:bg-white`}
                         />
+                        {fieldErrors.email ? (
+                          <p id="contact-email-error" role="alert" className="flex items-start gap-1.5 text-[11px] font-medium text-red-600 mt-1.5 leading-snug">
+                            <AlertCircle className="w-3.5 h-3.5 shrink-0 mt-0.5" />
+                            <span>{fieldErrors.email}</span>
+                          </p>
+                        ) : emailHint ? (
+                          <p id="contact-email-hint" className="text-[11px] font-medium text-amber-700 mt-1.5">
+                            {emailHint}
+                          </p>
+                        ) : null}
                       </div>
 
                       <div>
-                        <label className="block text-xs font-medium text-slate-700 mb-1">
+                        <label htmlFor="contact-phone" className="block text-xs font-medium text-slate-700 mb-1">
                           Phone Number *
                         </label>
                         <input
+                          id="contact-phone"
+                          ref={phoneRef}
                           type="tel"
+                          inputMode="tel"
+                          autoComplete="tel"
+                          maxLength={20}
                           required
                           placeholder="e.g. +91 81281 28791"
                           value={formData.phone}
-                          onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                          className="w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-2.5 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-theme-orange focus:bg-white"
+                          onChange={(e) => handleFieldChange('phone', e.target.value)}
+                          onBlur={() => handleFieldBlur('phone')}
+                          aria-invalid={Boolean(fieldErrors.phone)}
+                          aria-describedby={fieldErrors.phone ? 'contact-phone-error' : undefined}
+                          className={`w-full bg-slate-50 border ${fieldErrors.phone ? 'border-red-400 bg-red-50/30 ring-1 ring-red-200' : 'border-slate-300'} rounded-lg px-3 py-2.5 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-theme-orange focus:bg-white`}
                         />
+                        {fieldErrors.phone && (
+                          <p id="contact-phone-error" role="alert" className="flex items-start gap-1.5 text-[11px] font-medium text-red-600 mt-1.5 leading-snug">
+                            <AlertCircle className="w-3.5 h-3.5 shrink-0 mt-0.5" />
+                            <span>{fieldErrors.phone}</span>
+                          </p>
+                        )}
                       </div>
 
                       <div>
-                        <label className="block text-xs font-medium text-slate-700 mb-1">
+                        <label htmlFor="contact-subject" className="block text-xs font-medium text-slate-700 mb-1">
                           Nature of Inquiry
                         </label>
                         <select
+                          id="contact-subject"
                           value={formData.subject}
-                          onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                          className="w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-theme-orange focus:bg-white"
+                          onChange={(e) => handleFieldChange('subject', e.target.value)}
+                          onBlur={() => handleFieldBlur('subject')}
+                          aria-invalid={Boolean(fieldErrors.subject)}
+                          aria-describedby={fieldErrors.subject ? 'contact-subject-error' : undefined}
+                          className={`w-full bg-slate-50 border ${fieldErrors.subject ? 'border-red-400 bg-red-50/30 ring-1 ring-red-200' : 'border-slate-300'} rounded-lg px-3 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-theme-orange focus:bg-white`}
                         >
                           <option value="International Freight Forwarding">International Freight Forwarding</option>
                           <option value="Chemical & Pharma Cargo Handling">Chemical &amp; Pharma Cargo Handling</option>
@@ -372,42 +550,71 @@ export default function ContactPage() {
                           <option value="Worldwide Agency Network">Worldwide Agency Network</option>
                           <option value="Textile Machinery Imports">Textile Machinery Imports</option>
                         </select>
+                        {fieldErrors.subject && (
+                          <p id="contact-subject-error" role="alert" className="flex items-start gap-1.5 text-[11px] font-medium text-red-600 mt-1.5 leading-snug">
+                            <AlertCircle className="w-3.5 h-3.5 shrink-0 mt-0.5" />
+                            <span>{fieldErrors.subject}</span>
+                          </p>
+                        )}
                       </div>
 
                       <div>
-                        <label className="block text-xs font-medium text-slate-700 mb-1">
+                        <label htmlFor="contact-branch" className="block text-xs font-medium text-slate-700 mb-1">
                           Preferred Office Desk
                         </label>
                         <select
+                          id="contact-branch"
                           value={formData.branchPreference}
-                          onChange={(e) => setFormData({ ...formData, branchPreference: e.target.value })}
-                          className="w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-theme-orange focus:bg-white"
+                          onChange={(e) => handleFieldChange('branchPreference', e.target.value)}
+                          onBlur={() => handleFieldBlur('branchPreference')}
+                          aria-invalid={Boolean(fieldErrors.branchPreference)}
+                          aria-describedby={fieldErrors.branchPreference ? 'contact-branch-error' : undefined}
+                          className={`w-full bg-slate-50 border ${fieldErrors.branchPreference ? 'border-red-400 bg-red-50/30 ring-1 ring-red-200' : 'border-slate-300'} rounded-lg px-3 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-theme-orange focus:bg-white`}
                         >
                           <option value="Corporate Office (Goregaon, Mumbai)">Corporate Office (Goregaon, Mumbai)</option>
                           <option value="Mumbai Office (Mulund)">Mumbai Office (Mulund)</option>
                           <option value="Surat Desk">Surat Office Desk</option>
                           <option value="Ahmedabad Desk">Ahmedabad Office Desk</option>
                         </select>
+                        {fieldErrors.branchPreference && (
+                          <p id="contact-branch-error" role="alert" className="flex items-start gap-1.5 text-[11px] font-medium text-red-600 mt-1.5 leading-snug">
+                            <AlertCircle className="w-3.5 h-3.5 shrink-0 mt-0.5" />
+                            <span>{fieldErrors.branchPreference}</span>
+                          </p>
+                        )}
                       </div>
                     </div>
 
                     <div>
-                      <label className="block text-xs font-medium text-slate-700 mb-1">
+                      <label htmlFor="contact-message" className="block text-xs font-medium text-slate-700 mb-1">
                         Cargo &amp; Requirement Details *
                       </label>
                       <textarea
+                        id="contact-message"
+                        ref={messageRef}
                         required
                         rows={4}
+                        maxLength={2000}
                         placeholder="Please include port of loading, destination, cargo type (e.g. chemicals / general), volume/container count, and target timelines..."
                         value={formData.message}
-                        onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                        className="w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-2.5 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-theme-orange focus:bg-white"
+                        onChange={(e) => handleFieldChange('message', e.target.value)}
+                        onBlur={() => handleFieldBlur('message')}
+                        aria-invalid={Boolean(fieldErrors.message)}
+                        aria-describedby={fieldErrors.message ? 'contact-message-error' : undefined}
+                        className={`w-full bg-slate-50 border ${fieldErrors.message ? 'border-red-400 bg-red-50/30 ring-1 ring-red-200' : 'border-slate-300'} rounded-lg px-3 py-2.5 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-theme-orange focus:bg-white`}
                       />
+                      {fieldErrors.message && (
+                        <p id="contact-message-error" role="alert" className="flex items-start gap-1.5 text-[11px] font-medium text-red-600 mt-1.5 leading-snug">
+                          <AlertCircle className="w-3.5 h-3.5 shrink-0 mt-0.5" />
+                          <span>{fieldErrors.message}</span>
+                        </p>
+                      )}
                     </div>
 
                     {errorMessage && (
-                      <div className="p-3 rounded-lg bg-red-50 border border-red-200 text-xs text-red-700">
-                        {errorMessage}
+                      <div role="alert" className="flex items-start gap-2 p-3.5 rounded-lg bg-red-50 border border-red-200 text-xs font-medium text-red-700">
+                        <AlertCircle className="w-4 h-4 shrink-0 mt-0.5 text-red-600" />
+                        <span>{errorMessage}</span>
                       </div>
                     )}
 
