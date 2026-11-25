@@ -4,17 +4,17 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
-import { 
-  MapPin, 
-  Phone, 
-  Mail, 
-  Clock, 
-  Send, 
-  CheckCircle2, 
-  Building2, 
-  ShieldCheck, 
-  Anchor, 
-  MessageSquare, 
+import {
+  MapPin,
+  Phone,
+  Mail,
+  Clock,
+  Send,
+  CheckCircle2,
+  Building2,
+  ShieldCheck,
+  Anchor,
+  MessageSquare,
   HelpCircle,
   PhoneCall,
   ChevronDown,
@@ -160,7 +160,7 @@ export default function ContactPage() {
       <Header />
 
       <main className="flex-1">
-        
+
         {/* Header */}
         <section className="bg-slate-50 border-b border-slate-200 py-12 sm:py-16">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -183,7 +183,7 @@ export default function ContactPage() {
         {/* 4 Regional Offices Cards */}
         <section className="py-16 sm:py-20 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            
+
             <div className="text-center max-w-2xl mx-auto mb-14">
               <span className="text-xs font-semibold text-theme-orange uppercase tracking-wider block mb-2">
                 Branch Footprint
@@ -284,7 +284,7 @@ export default function ContactPage() {
         <section className="py-16 sm:py-20 bg-slate-50 border-y border-slate-200">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
-              
+
               {/* Left Column: Direct Inquiry Form */}
               <div className="lg:col-span-7 bg-white rounded-2xl border border-slate-200 p-6 sm:p-10 shadow-sm">
                 <div className="mb-8">
@@ -456,7 +456,7 @@ export default function ContactPage() {
 
               {/* Right Column: Direct Hotline & Key Facts */}
               <div className="lg:col-span-5 space-y-6">
-                
+
                 {/* Direct Helpline Card */}
                 <div className="relative overflow-hidden bg-gradient-to-br from-[#182238] via-[#243350] to-[#182238] text-white p-6 sm:p-8 rounded-2xl shadow-lg border-t-4 border-theme-orange space-y-5">
                   <div className="inline-flex items-center space-x-2 bg-theme-orange text-white px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider shadow-sm">
@@ -521,9 +521,8 @@ export default function ContactPage() {
                         >
                           <span>{faq.q}</span>
                           <ChevronDown
-                            className={`w-4 h-4 text-slate-400 transition-transform ${
-                              openFaq === idx ? 'rotate-180 text-theme-orange' : ''
-                            }`}
+                            className={`w-4 h-4 text-slate-400 transition-transform ${openFaq === idx ? 'rotate-180 text-theme-orange' : ''
+                              }`}
                           />
                         </button>
                         {openFaq === idx && (

@@ -6,8 +6,8 @@
  */
 
 // Your Google Sheet & Google Drive Folder IDs
-const SPREADSHEET_ID = '1mvxchW8E1sTjgkU0dXS817j2IQZ0Z7q8EoNLBU5rqhQ';
-const FOLDER_ID = '1I9S368ZZQNj9zmGRYIVQIAyrbmfoWnLT';
+const SPREADSHEET_ID = '1k2o8ks4I1n0v-tAYcbcqvNXgncOApuitVDFA3Msqtb8';
+const FOLDER_ID = '1tchmx0no3p39W7RTaL3d0eM9n66UkRju';
 
 const MAX_FILE_SIZE_BYTES = 5 * 1024 * 1024; // 5 MB
 const ALLOWED_MIME_TYPES = ['image/png', 'image/jpeg', 'image/jpg', 'image/webp', 'application/pdf'];
@@ -131,9 +131,9 @@ function processSubmission(data) {
     sheet.setRowHeight(sheet.getLastRow(), 75);
   }
 
-  return { 
-    success: true, 
-    message: 'Inquiry saved successfully to Seven Routes Google Sheet.' 
+  return {
+    success: true,
+    message: 'Inquiry saved successfully to Seven Routes Google Sheet.'
   };
 }
 

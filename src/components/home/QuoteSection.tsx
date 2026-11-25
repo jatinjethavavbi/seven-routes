@@ -77,7 +77,7 @@ export default function QuoteSection() {
   return (
     <section id="quote" className="py-16 sm:py-20 bg-white border-t border-slate-200">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         {/* Section Header */}
         <div className="text-center mb-10">
           <span className="text-xs font-semibold text-theme-orange uppercase tracking-wider block mb-2">
@@ -111,7 +111,7 @@ export default function QuoteSection() {
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-4">
-              
+
               {/* Row 1: Name & Phone */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
