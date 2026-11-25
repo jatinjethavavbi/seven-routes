@@ -17,7 +17,7 @@ export default function Footer() {
   const socialLinks = [
     {
       name: 'LinkedIn',
-      href: 'https://www.linkedin.com/company/seven-routes-logistics',
+      href: 'https://www.linkedin.com/company/seven-routes-logistics-international-pvt-ltd/',
       icon: Linkedin,
     },
     {
